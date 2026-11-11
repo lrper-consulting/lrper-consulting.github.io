@@ -1,0 +1,16 @@
+{%- comment -%}
+  Cabecera oscura de una página interior: antetítulo, título y texto lateral.
+  El título es el campo "encabezado" de la página (o "title" si no existe).
+  Uso: {% include cabecera-pagina.html antetitulo="..." texto=content %}
+{%- endcomment -%}
+<section class="cabecera-pagina">
+  <div class="contenedor cabecera-pagina__fila">
+    <div class="cabecera-pagina__titular">
+      <p class="antetitulo antetitulo--acento">{{ include.antetitulo }}</p>
+      <h1>{{ page.encabezado | default: page.title }}</h1>
+    </div>
+    <div class="cabecera-pagina__texto">
+      {{ include.texto }}
+    </div>
+  </div>
+</section>

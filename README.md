@@ -4,7 +4,7 @@ Leading Renewable Projects | Engineering Resources
 
 Sitio estático de la empresa, en español e inglés, construido con Jekyll y publicado con GitHub Pages.
 
-- **Sitio publicado:** https://lrper-consulting.github.io
+- **Sitio publicado:** https://lrper.com
 - **Cómo editar:** leer `CONTRIBUTING.md` antes del primer cambio.
 - **Plan de trabajo:** `ROADMAP.md`.
 - **Historial de versiones:** `CHANGELOG.md`.
@@ -32,7 +32,7 @@ El sitio separa tres capas:
 │   ├── equipo.yml       Integrantes
 │   ├── servicios.yml    Líneas de servicio y entregables
 │   ├── tecnologias.yml  Tecnologías del bloque de inicio
-│   ├── metodologia.yml  Pasos de "Cómo trabajamos"
+│   ├── etapas.yml       Etapas FEL de la página Servicios
 │   └── nosotros.yml     Misión, visión, valores, enfoque
 ├── _proyectos/
 │   ├── es/              Una ficha por proyecto, en español
@@ -47,6 +47,7 @@ El sitio separa tres capas:
 │   └── img/             Imágenes
 ├── docs/                Documentación interna del sitio
 ├── index.html           Redirige la dirección raíz al idioma por defecto
+├── CNAME                Dominio propio del sitio (no borrar)
 └── 404.html             Página de error
 ```
 

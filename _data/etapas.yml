@@ -1,0 +1,35 @@
+# Etapas del proyecto (FEL) del bloque "Dónde participamos" de la página Servicios.
+# estilo: principal (servicio principal), continuidad o fuera (fuera de alcance).
+
+- sigla: "FEL 1"
+  estilo: principal
+  es:
+    nombre: "Ingeniería conceptual"
+    decide: "Si la idea merece desarrollarse"
+    participacion: "Servicio principal"
+  en:
+    nombre: "Conceptual engineering"
+    decide: "Whether the idea is worth developing"
+    participacion: "Core service"
+
+- sigla: "FEL 2"
+  estilo: continuidad
+  es:
+    nombre: "Ingeniería básica"
+    decide: "Qué alternativa se construye"
+    participacion: "Continuidad"
+  en:
+    nombre: "Basic engineering"
+    decide: "Which alternative is built"
+    participacion: "Continuation"
+
+- sigla: "FEL 3"
+  estilo: fuera
+  es:
+    nombre: "Ingeniería de detalle y ejecución"
+    decide: "Cómo se construye"
+    participacion: "Fuera de alcance"
+  en:
+    nombre: "Detailed engineering and execution"
+    decide: "How it is built"
+    participacion: "Outside our scope"

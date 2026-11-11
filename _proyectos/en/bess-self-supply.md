@@ -1,4 +1,6 @@
 ---
+# published: false = the project does NOT appear on the site. Delete this line to publish it.
+published: false
 layout: proyecto
 lang: en
 ref: proyecto-bess

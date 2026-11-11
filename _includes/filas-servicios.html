@@ -1,0 +1,27 @@
+{%- comment -%}
+  Servicios en filas, con sus entregables (página Servicios).
+  Generadas desde _data/servicios.yml.
+{%- endcomment -%}
+<div class="filas">
+  {%- for servicio in site.data.servicios %}
+  {%- assign srv = servicio[lang] %}
+  <article class="fila-servicio" id="{{ servicio.id }}">
+    <div class="fila-servicio__marca">
+      <span class="servicio__numero">{{ forloop.index | prepend: "0" }}</span>
+      <span class="servicio__icono">{% include icono.html nombre=servicio.icono %}</span>
+    </div>
+    <div class="fila-servicio__texto">
+      <h3>{{ srv.nombre }}</h3>
+      <p>{{ srv.descripcion }}</p>
+    </div>
+    <div class="fila-servicio__entregables">
+      <h4>{{ t.entregables }}</h4>
+      <ul class="etiquetas etiquetas--claras">
+        {%- for entregable in srv.entregables %}
+        <li>{{ entregable }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </article>
+  {%- endfor %}
+</div>

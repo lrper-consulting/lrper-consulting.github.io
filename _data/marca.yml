@@ -84,9 +84,13 @@ efectos:
   transition: "200ms ease"
 
 # Datos de contacto. Los campos vacíos no se muestran.
+# formulario_url: dirección del servicio que recibe el formulario de contacto
+#                 (por ejemplo, un formulario de Formspree). Vacío = el
+#                 formulario no se muestra.
 contacto:
   correo: ""
   linkedin: ""
+  formulario_url: ""
   ciudad:
     es: "Santiago, Chile"
     en: "Santiago, Chile"

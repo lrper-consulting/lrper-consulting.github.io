@@ -165,11 +165,6 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .compromisos__letra { display: block; font-size: 0.82rem; color: var(--secondary); margin-bottom: 0.6rem; }
 .compromisos p { margin: 0; }
 
-/* Pasos ("Cómo trabajamos") */
-.pasos { counter-reset: paso; }
-.pasos li { counter-increment: paso; }
-.pasos h3::before { content: "0" counter(paso); display: block; font-family: var(--font-technical); font-size: 0.85rem; font-weight: 500; color: var(--secondary); margin-bottom: var(--espacio-1); }
-
 /* ---------- Equipo ---------- */
 .retrato .imagen { border-radius: var(--radius-lg); margin-bottom: 1rem; }
 .retrato h3 { font-size: 1.125rem; margin-bottom: 0.25rem; }
@@ -229,6 +224,61 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .perfil__enlace:hover { color: var(--accent); }
 .etiquetas--oscuras li { background: var(--primary-dark); border: 1px solid var(--body); color: var(--text-light); }
 
+/* ---------- Etapas FEL ---------- */
+.etapas { gap: var(--espacio-2); }
+.etapa { display: flex; flex-direction: column; gap: 0.875rem; padding: 1.75rem; border-radius: var(--radius-lg); }
+.etapa > * { margin: 0; }
+.etapa__cabeza { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; }
+.etapa__sigla { font-family: var(--font-heading); font-weight: 700; font-size: 2.125rem; line-height: 1; }
+.etapa__participacion { font-family: var(--font-technical); font-size: 0.75rem; padding: 0.3rem 0.6rem; border-radius: var(--radius-sm); }
+.etapa h3 { font-size: 1.25rem; }
+.etapa__decide { margin-top: auto; padding-top: var(--espacio-2); border-top: 1px solid var(--border); }
+.etapa__decide dd { margin-top: 0.25rem; font-weight: 400; }
+.etapa--principal { background: var(--primary); color: var(--border); }
+.etapa--principal .etapa__sigla, .etapa--principal h3, .etapa--principal dd { color: var(--text-light); }
+.etapa--principal dt { color: var(--border); }
+.etapa--principal .etapa__decide { border-top-color: var(--muted); }
+.etapa--principal .etapa__participacion { background: var(--accent); color: var(--primary); }
+.etapa--continuidad { background: var(--surface-green); }
+.etapa--continuidad .etapa__sigla { color: var(--heading); }
+.etapa--continuidad .etapa__participacion { background: var(--secondary); color: var(--text-light); }
+.etapa--fuera { background: var(--surface); border: 1px dashed var(--muted); }
+.etapa--fuera .etapa__sigla, .etapa--fuera h3 { color: var(--muted); }
+.etapa--fuera dd { color: var(--body); }
+.etapa--fuera .etapa__participacion { background: var(--background-alt); color: var(--body); }
+
+/* ---------- Servicios en filas ---------- */
+.filas { border-bottom: 1px solid var(--border); }
+.fila-servicio { display: flex; flex-wrap: wrap; gap: var(--espacio-3) 3rem; padding: var(--espacio-4) 0; border-top: 1px solid var(--border); }
+.fila-servicio:first-child { border-top: 2px solid var(--primary); }
+.fila-servicio__marca { flex: 0 0 4rem; display: flex; flex-direction: column; gap: 0.875rem; }
+.fila-servicio__texto { flex: 1 1 21rem; min-width: 0; }
+.fila-servicio__texto h3 { font-size: clamp(1.4rem, 2.6vw, 1.875rem); line-height: 1.15; margin-bottom: 0.75rem; }
+.fila-servicio__texto p { margin: 0; font-size: 1.06rem; }
+.fila-servicio__entregables { flex: 1 1 24rem; min-width: 0; }
+.fila-servicio__entregables h4 { margin: 0 0 0.75rem; }
+.etiquetas--claras li { font-family: var(--font-body); font-weight: 400; font-size: 0.875rem; padding: 0.45rem 0.75rem; background: var(--surface); border: 1px solid var(--border); }
+
+/* ---------- Aviso de sección en preparación ---------- */
+.aviso { max-width: 44rem; margin: 0 auto; padding: clamp(2rem, 6vw, 4.5rem); border-radius: var(--radius-lg); border: 1px dashed var(--muted); background: var(--background-alt); text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--espacio-2); }
+.aviso > * { margin: 0; }
+.aviso__etiqueta { font-family: var(--font-technical); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.75rem; border-radius: var(--radius-sm); background: var(--surface-copper); color: var(--heading); }
+.aviso h2 { font-size: clamp(1.6rem, 3.4vw, 2.25rem); }
+.aviso .boton { margin-top: var(--espacio-1); }
+
+/* ---------- Contacto ---------- */
+.contacto { display: flex; flex-wrap: wrap; gap: 3rem var(--espacio-5); align-items: flex-start; }
+.contacto__datos { flex: 1 1 18rem; min-width: 0; }
+.contacto__datos h2, .formulario h2 { font-size: 1.5rem; margin-bottom: var(--espacio-3); }
+.contacto__datos dd { font-size: 1.125rem; }
+.formulario { flex: 1.4 1 24rem; min-width: 0; display: flex; flex-direction: column; gap: var(--espacio-2); }
+.formulario > * { margin: 0; }
+.formulario__campo { display: flex; flex-direction: column; gap: 0.35rem; }
+.formulario label { font-weight: 600; font-size: 0.9rem; color: var(--heading); }
+.formulario input, .formulario textarea { font: inherit; color: var(--body); padding: 0.75rem 0.9rem; min-height: 2.75rem; border: 1px solid var(--muted); border-radius: var(--radius-md); background: var(--surface); }
+.formulario textarea { resize: vertical; }
+.formulario .boton { align-self: flex-start; cursor: pointer; font: inherit; font-weight: 600; }
+
 /* ---------- Imágenes ---------- */
 .imagen { width: 100%; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--espacio-2); }
 .imagen--21-9 { aspect-ratio: 21 / 9; }
@@ -259,7 +309,6 @@ dl { margin: 0; }
 dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-top: var(--espacio-2); }
 dt:first-child { margin-top: 0; }
 dd { margin: 0; font-weight: 500; color: var(--heading); }
-.contacto { margin: var(--espacio-3) 0; }
 
 /* ---------- Tablas (escritas en Markdown) ---------- */
 table { width: 100%; border-collapse: collapse; margin: var(--espacio-3) 0; font-size: 0.95rem; }

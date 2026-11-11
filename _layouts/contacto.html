@@ -4,29 +4,54 @@ layout: default
 {%- include variables.html -%}
 {%- assign c = m.contacto -%}
 
-<section class="seccion">
-  <div class="contenedor contenedor--texto">
-    <h1>{{ page.title }}</h1>
-    {{ content }}
+{% include cabecera-pagina.html antetitulo=t.contacto texto=content %}
 
-    {%- comment -%}
-      Datos directos desde _data/marca.yml. Los campos vacíos no se muestran.
-      El formulario de contacto se agrega en la fase 5 de la hoja de ruta.
-    {%- endcomment -%}
-    <dl class="contacto">
-      {%- if c.correo != "" %}
-      <dt>{{ t.correo }}</dt>
-      <dd><a href="mailto:{{ c.correo }}">{{ c.correo }}</a></dd>
+<section class="seccion">
+  <div class="contenedor contacto">
+
+    {%- comment -%} Datos directos, desde _data/marca.yml. Los campos vacíos no se muestran. {%- endcomment -%}
+    <div class="contacto__datos">
+      <h2>{{ t.datos_directos }}</h2>
+      <dl>
+        {%- if c.correo != "" %}
+        <dt>{{ t.correo }}</dt>
+        <dd><a href="mailto:{{ c.correo }}">{{ c.correo }}</a></dd>
+        {%- endif %}
+        {%- if c.linkedin != "" %}
+        <dt>{{ t.linkedin }}</dt>
+        <dd><a href="{{ c.linkedin }}" rel="noopener">{{ site.title }}</a></dd>
+        {%- endif %}
+        <dt>{{ t.ciudad }}</dt>
+        <dd>{{ c.ciudad[lang] }}</dd>
+      </dl>
+      {%- if c.correo == "" and c.linkedin == "" %}
+      <p class="nota">{{ t.contacto_pendiente }}</p>
       {%- endif %}
-      {%- if c.linkedin != "" %}
-      <dt>{{ t.linkedin }}</dt>
-      <dd><a href="{{ c.linkedin }}" rel="noopener">{{ c.linkedin }}</a></dd>
-      {%- endif %}
-      <dt>{{ t.ciudad }}</dt>
-      <dd>{{ c.ciudad[lang] }}</dd>
-    </dl>
-    {%- if c.correo == "" and c.linkedin == "" %}
-    <p class="nota">{{ t.contacto_pendiente }}</p>
+    </div>
+
+    {%- comment -%} Formulario: solo se muestra si existe "formulario_url" en _data/marca.yml {%- endcomment -%}
+    {%- if c.formulario_url and c.formulario_url != "" %}
+    <form class="formulario tarjeta" action="{{ c.formulario_url }}" method="POST">
+      <h2>{{ t.formulario_titulo }}</h2>
+      <div class="formulario__campo">
+        <label for="campo-nombre">{{ t.campo_nombre }}</label>
+        <input id="campo-nombre" name="nombre" type="text" autocomplete="name" required>
+      </div>
+      <div class="formulario__campo">
+        <label for="campo-correo">{{ t.campo_correo }}</label>
+        <input id="campo-correo" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="formulario__campo">
+        <label for="campo-empresa">{{ t.campo_empresa }}</label>
+        <input id="campo-empresa" name="empresa" type="text" autocomplete="organization">
+      </div>
+      <div class="formulario__campo">
+        <label for="campo-mensaje">{{ t.campo_mensaje }}</label>
+        <textarea id="campo-mensaje" name="mensaje" rows="6" required></textarea>
+      </div>
+      <button class="boton" type="submit">{{ t.enviar }}</button>
+    </form>
     {%- endif %}
+
   </div>
 </section>

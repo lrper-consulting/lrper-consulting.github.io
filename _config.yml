@@ -12,11 +12,11 @@ nombre:
   completo: ["Leading Renewable Projects", "Engineering Resources"]
 
 description: "Leading Renewable Projects | Engineering Resources"
-version: 0.5.0
+version: 0.7.0
 
 # Dirección del sitio. Si el sitio pasa a una subdirección (por ejemplo
 # matriz.com/chile), se cambia "baseurl" a "/chile" y nada más.
-url: "https://lrper-consulting.github.io"
+url: "https://lrper.com"
 baseurl: ""
 
 # Idioma al que redirige la dirección raíz del sitio.

@@ -3,7 +3,8 @@ layout: nosotros
 lang: es
 ref: nosotros
 permalink: /es/nosotros/
-title: "Quiénes somos"
+title: "Nosotros"
+encabezado: "Quiénes somos"
 description: "Conozca al equipo, la misión, la visión y los valores de la empresa."
 ---
 

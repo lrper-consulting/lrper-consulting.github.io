@@ -4,10 +4,10 @@ layout: default
 {%- include variables.html -%}
 {%- assign lista = site.proyectos | where: "lang", lang -%}
 
+{% include cabecera-pagina.html antetitulo=t.proyectos_antetitulo texto=content %}
+
 <section class="seccion">
   <div class="contenedor">
-    <h1>{{ page.title }}</h1>
-    {{ content }}
     {%- if lista.size > 0 %}
     <div class="rejilla rejilla--3">
       {%- for proyecto in lista %}
@@ -15,7 +15,13 @@ layout: default
       {%- endfor %}
     </div>
     {%- else %}
-    <p>{{ t.sin_proyectos }}</p>
+    {%- comment -%} Sin proyectos publicados: aviso de sección en preparación {%- endcomment -%}
+    <div class="aviso">
+      <p class="aviso__etiqueta">{{ t.en_preparacion }}</p>
+      <h2>{{ t.sin_proyectos_titulo }}</h2>
+      <p>{{ t.sin_proyectos }}</p>
+      <a class="boton" href="{{ t.contacto_url | relative_url }}">{{ t.cta_boton }}</a>
+    </div>
     {%- endif %}
   </div>
 </section>

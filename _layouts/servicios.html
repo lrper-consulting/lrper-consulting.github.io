@@ -2,39 +2,43 @@
 layout: default
 ---
 {%- include variables.html -%}
+{%- assign sec = page.secciones -%}
 
-{%- comment -%} 1 y 2. Introducción y etapas del proyecto: el Markdown de la página {%- endcomment -%}
+{%- comment -%} 1. Cabecera: título e introducción (el Markdown de la página) {%- endcomment -%}
+{% include cabecera-pagina.html antetitulo=t.servicios texto=content %}
+
+{%- comment -%} 2. Dónde participamos: etapas FEL, desde _data/etapas.yml {%- endcomment -%}
 <section class="seccion">
-  <div class="contenedor contenedor--texto">
-    <h1>{{ page.title }}</h1>
-    {{ content }}
+  <div class="contenedor">
+    {% include cabecera-seccion.html antetitulo=t.donde_participamos titulo=sec.etapas_titulo texto=sec.etapas_texto %}
+    <ol class="rejilla rejilla--3 etapas">
+      {%- for etapa in site.data.etapas %}
+      {%- assign e = etapa[lang] %}
+      <li class="etapa etapa--{{ etapa.estilo }}">
+        <div class="etapa__cabeza">
+          <span class="etapa__sigla">{{ etapa.sigla }}</span>
+          <span class="etapa__participacion">{{ e.participacion }}</span>
+        </div>
+        <h3>{{ e.nombre }}</h3>
+        <dl class="etapa__decide">
+          <dt>{{ t.que_se_decide }}</dt>
+          <dd>{{ e.decide }}</dd>
+        </dl>
+      </li>
+      {%- endfor %}
+    </ol>
+    <p class="nota">{{ sec.etapas_nota }}</p>
   </div>
 </section>
 
-{%- comment -%} 3. Servicios {%- endcomment -%}
+{%- comment -%} 3. Servicios y entregables {%- endcomment -%}
 <section class="seccion seccion--alterna">
   <div class="contenedor">
-    <h2>{{ t.servicios }}</h2>
-    {% include tarjetas-servicios.html detalle="si" %}
+    {% include cabecera-seccion.html antetitulo=t.servicios titulo=sec.servicios_titulo %}
+    {% include filas-servicios.html %}
     <p class="nota">{{ t.nota_asociados }}</p>
   </div>
 </section>
 
-{%- comment -%} 4. Cómo trabajamos {%- endcomment -%}
-<section class="seccion">
-  <div class="contenedor">
-    <h2>{{ t.como_trabajamos }}</h2>
-    <ol class="rejilla rejilla--4 pasos">
-      {%- for item in site.data.metodologia %}
-      {%- assign paso = item[lang] %}
-      <li class="tarjeta tarjeta--plana">
-        <h3>{{ paso.nombre }}</h3>
-        <p>{{ paso.descripcion }}</p>
-      </li>
-      {%- endfor %}
-    </ol>
-  </div>
-</section>
-
-{%- comment -%} 5. Llamado a contacto {%- endcomment -%}
+{%- comment -%} 4. Llamado a contacto {%- endcomment -%}
 {% include llamado-contacto.html %}

@@ -2,6 +2,27 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). El sitio usa [Semantic Versioning](https://semver.org/lang/es/), según las reglas de `CONTRIBUTING.md`.
 
+## [0.7.0] - 2026-11-11
+
+### Agregado
+
+- Perfiles de los cinco integrantes del equipo en `_data/equipo.yml`, en español e inglés.
+
+## [0.6.0] - 2026-11-11
+
+### Agregado
+
+- Diseño de la página Servicios: etapas FEL en tarjetas (`_data/etapas.yml`) y servicios en filas con sus entregables.
+- Página Proyectos con aviso de sección en preparación mientras no haya proyectos publicados.
+- Diseño de la página Contacto, con formulario opcional que se activa con `formulario_url` en `_data/marca.yml`.
+- Cabecera común para las páginas interiores (`_includes/cabecera-pagina.html`).
+- Dominio propio `lrper.com` (archivo `CNAME`).
+
+### Eliminado
+
+- Bloque "Cómo trabajamos" y su archivo `_data/metodologia.yml`.
+- La ficha provisional del proyecto queda sin publicar (`published: false`), como plantilla.
+
 ## [0.5.0] - 2026-11-10
 
 ### Agregado
@@ -11,7 +32,7 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). E
 
 ### Cambiado
 
-- Dirección del sitio: `https://lrper-consulting.github.io`.
+- Dirección del sitio actualizada tras el cambio de nombre de la organización.
 - El título del bloque de equipo pasa a `_data/i18n.yml` para compartirlo entre Inicio y Nosotros.
 
 ## [0.4.0] - 2026-11-10

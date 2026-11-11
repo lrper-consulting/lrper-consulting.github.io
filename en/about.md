@@ -3,7 +3,8 @@ layout: nosotros
 lang: en
 ref: nosotros
 permalink: /en/about/
-title: "About us"
+title: "About"
+encabezado: "About us"
 description: "Meet the team and learn about the company's mission, vision and values."
 ---
 
