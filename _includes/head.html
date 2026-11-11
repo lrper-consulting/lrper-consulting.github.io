@@ -1,0 +1,11 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description | default: m.lema[lang] | escape }}">
+{%- if m.fuentes_url and m.fuentes_url != "" %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="{{ m.fuentes_url }}">
+{%- endif %}
+{% include marca-css.html %}
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">

@@ -1,0 +1,11 @@
+---
+layout: default
+---
+{%- include variables.html -%}
+{%- comment -%} Página genérica de texto: título y contenido en Markdown. {%- endcomment -%}
+<section class="seccion">
+  <div class="contenedor contenedor--texto">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </div>
+</section>

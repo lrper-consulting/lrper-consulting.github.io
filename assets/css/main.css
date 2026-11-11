@@ -1,0 +1,252 @@
+/*
+  Estilos del sitio. Dirección C2: Industrial / Transición energética.
+
+  Regla: este archivo NO define colores, fuentes, radios ni sombras propios.
+  Usa las variables que _includes/marca-css.html genera desde _data/marca.yml.
+  Aquí solo vive la escala de espaciado interno.
+*/
+
+:root {
+  --ancho-texto: 46rem;
+  --espacio-1: 0.5rem;
+  --espacio-2: 1rem;
+  --espacio-3: 1.5rem;
+  --espacio-4: 2.5rem;
+  --espacio-5: 4rem;
+  /* Cuánto se monta la imagen de portada sobre la sección siguiente */
+  --solape-portada: clamp(3rem, 10vw, 8.75rem);
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--body);
+  background: var(--background);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--espacio-2);
+  color: var(--heading);
+}
+h1 { font-size: clamp(2.1rem, 4.6vw, 3.25rem); }
+h2 { font-size: clamp(1.9rem, 4vw, 2.75rem); margin-bottom: var(--espacio-3); }
+h3 { font-size: 1.3rem; font-weight: 600; line-height: 1.2; }
+
+/* Etiquetas técnicas: tipografía monoespaciada */
+h4, dt, .antetitulo, .etiquetas li, .pie__legal, .pie__nombre, .idioma, .servicio__numero, .compromisos__letra, .portada__chips li {
+  font-family: var(--font-technical);
+  font-weight: 500;
+}
+h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-top: var(--espacio-3); }
+
+p { margin: 0 0 var(--espacio-2); }
+a { color: var(--link); transition: color var(--transition); }
+a:hover { color: var(--link-hover); }
+img { max-width: 100%; height: auto; display: block; }
+ul, ol { margin: 0 0 var(--espacio-2); padding-left: 1.25rem; }
+hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0; }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+/* Sobre fondos oscuros el foco usa su variante clara */
+.encabezado :focus-visible, .portada :focus-visible, .seccion--oscura :focus-visible, .pie :focus-visible { outline-color: var(--focus-inverse); }
+
+/* ---------- Estructura ---------- */
+.contenedor { max-width: var(--container-width); margin: 0 auto; padding: 0 var(--espacio-3); }
+.contenedor--texto { max-width: var(--ancho-texto); }
+.contenedor--texto h2 { margin-top: var(--espacio-4); font-size: 1.75rem; }
+.seccion { padding: var(--section-spacing) 0; }
+.seccion--alterna { background: var(--background-alt); }
+.seccion--oscura { background: var(--primary-dark); color: var(--border); }
+.seccion--oscura h2 { color: var(--text-light); }
+/* La sección que sigue a la portada deja espacio para la imagen que se monta sobre ella */
+.seccion--tras-portada { padding-top: calc(var(--section-spacing) + var(--solape-portada)); }
+
+.saltar { position: absolute; left: -999rem; }
+.saltar:focus { left: var(--espacio-2); top: var(--espacio-2); background: var(--surface); padding: var(--espacio-1) var(--espacio-2); z-index: 10; }
+
+/* Antetítulo y cabecera de sección */
+.antetitulo { margin: 0 0 0.75rem; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--secondary); }
+.antetitulo--claro { color: var(--border); }
+.antetitulo--acento { color: var(--accent); }
+.cabecera { display: flex; flex-wrap: wrap; gap: var(--espacio-2) var(--espacio-5); align-items: flex-end; margin-bottom: 3rem; }
+.cabecera__titular { flex: 999 1 26rem; min-width: 0; }
+.cabecera__titular h2 { margin: 0; max-width: 24ch; }
+.cabecera__texto { flex: 1 1 21rem; min-width: 0; margin: 0; color: var(--muted); }
+.cabecera--con-enlace { justify-content: space-between; }
+.cabecera--con-enlace .cabecera__titular { flex: 0 1 auto; }
+
+/* ---------- Encabezado ---------- */
+.encabezado { background: var(--primary); }
+.encabezado__fila { display: flex; flex-wrap: wrap; align-items: center; gap: var(--espacio-1) 2rem; min-height: var(--header-height); padding-top: var(--espacio-1); padding-bottom: var(--espacio-1); }
+.encabezado__acciones { display: flex; align-items: center; gap: 1.25rem; }
+.marca { text-decoration: none; margin-right: auto; padding: 0.5rem 0; }
+.marca img { height: 2.75rem; width: auto; }
+.logo-texto { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; letter-spacing: 0.02em; line-height: 1; color: var(--text-light); }
+.logo-texto__barra { display: block; width: 3px; height: 1.5rem; background: var(--accent); }
+.menu { display: flex; flex-wrap: wrap; gap: var(--espacio-1) 2rem; list-style: none; margin: 0; padding: 0; }
+.menu a { display: inline-block; color: var(--text-light); text-decoration: none; font-weight: 500; padding: 0.7rem 0; border-bottom: 2px solid transparent; transition: border-color var(--transition); }
+.menu a:hover, .menu a[aria-current="page"] { color: var(--text-light); border-bottom-color: var(--accent); }
+.idioma { font-size: 0.82rem; color: var(--border); text-decoration: none; padding: 0.7rem 0.25rem; }
+.idioma:hover { color: var(--text-light); }
+
+/* ---------- Botones ---------- */
+.botones { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.boton { display: inline-block; padding: 0.875rem 1.6rem; border: 1px solid transparent; border-radius: var(--radius-md); background: var(--button-primary); color: var(--button-primary-text); font-weight: 600; text-decoration: none; transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition); }
+.boton:hover { background: var(--button-primary-hover); color: var(--button-primary-text); box-shadow: var(--shadow-sm); }
+.boton--secundario { background: var(--button-secondary); color: var(--button-secondary-text); }
+.boton--secundario:hover { background: var(--button-secondary-hover); color: var(--button-secondary-text); }
+.boton--acento { background: var(--button-accent); color: var(--button-accent-text); }
+.boton--acento:hover { background: var(--button-accent-hover); color: var(--button-accent-text); }
+/* Botón de contorno, para fondos oscuros */
+.boton--contorno { background: transparent; border-color: var(--muted); color: var(--text-light); }
+.boton--contorno:hover { background: transparent; border-color: var(--text-light); color: var(--text-light); }
+.boton--pequeno { padding: 0.65rem 1.35rem; }
+
+.enlace-flecha { display: inline-block; font-weight: 600; text-decoration: none; padding: 0.6rem 0; }
+.enlace-flecha::after { content: " →"; }
+.enlace-volver { text-decoration: none; font-weight: 500; }
+.enlace-volver::before { content: "← "; }
+
+/* ---------- Portada ---------- */
+.portada { background: var(--primary); color: var(--text-light); padding-top: 4.5rem; }
+.portada__fila { display: flex; flex-wrap: wrap; gap: var(--espacio-4) var(--espacio-5); align-items: flex-end; }
+.portada__titular { flex: 999 1 35rem; min-width: 0; text-align: center; }
+.portada__nombre { margin: 0; font-size: clamp(2.1rem, 4.6vw, 3.75rem); line-height: 1.08; letter-spacing: -0.02em; color: var(--text-light); }
+/* Segunda línea del nombre: peso ligero y color de acento */
+.portada__nombre span { font-weight: 300; letter-spacing: 0; color: var(--accent); }
+.portada__lateral { flex: 1 1 21rem; min-width: 0; display: flex; flex-direction: column; gap: 1.75rem; }
+.portada__texto { margin: 0; font-size: 1.125rem; line-height: 1.6; color: var(--border); }
+.portada__imagen { position: relative; margin-top: var(--espacio-5); margin-bottom: calc(var(--solape-portada) * -1); }
+.portada__imagen .imagen { margin-bottom: 0; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); min-height: 16rem; }
+.portada__chips { position: absolute; left: var(--espacio-3); bottom: var(--espacio-3); display: flex; flex-wrap: wrap; gap: var(--espacio-1); list-style: none; margin: 0; padding: 0; }
+.portada__chips li { font-size: 0.75rem; padding: 0.4rem 0.75rem; border-radius: var(--radius-sm); background: var(--primary); color: var(--text-light); }
+
+/* ---------- Rejillas y tarjetas ---------- */
+.rejilla { display: grid; gap: var(--espacio-3); list-style: none; padding: 0; margin: 0; grid-template-columns: 1fr; }
+.rejilla--auto { grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr)); }
+.rejilla--retratos { grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1.25rem; }
+.tarjeta { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; box-shadow: var(--shadow-sm); }
+.tarjeta > :last-child { margin-bottom: 0; }
+.tarjeta--plana { border: 0; border-top: 3px solid var(--accent); border-radius: 0; background: transparent; box-shadow: none; padding: var(--espacio-2) 0 0; }
+.tarjeta--imagen { padding: 0; overflow: hidden; box-shadow: none; display: flex; flex-direction: column; }
+.tarjeta--imagen .imagen { margin: 0; border-radius: 0; border: 0; }
+.tarjeta__cuerpo { padding: 1.25rem 1.5rem 1.5rem; }
+.tarjeta__cuerpo h3 { font-size: 1.2rem; margin-bottom: var(--espacio-1); }
+.tarjeta__cuerpo p { margin: 0; font-size: 0.95rem; }
+
+.lista { padding-left: 1.1rem; }
+.lista li::marker { color: var(--secondary); }
+.etiquetas { display: flex; flex-wrap: wrap; gap: var(--espacio-1); list-style: none; padding: 0; }
+.etiquetas li { font-size: 0.75rem; padding: 0.25rem 0.6rem; border-radius: var(--radius-sm); background: var(--surface-green); color: var(--heading); }
+.nota { font-size: 0.9rem; color: var(--muted); margin-top: var(--espacio-3); }
+.entradilla { font-size: 1.2rem; color: var(--muted); max-width: 60ch; }
+
+/* Tarjeta de servicio */
+.servicio { display: flex; flex-direction: column; gap: var(--espacio-2); }
+.servicio > * { margin: 0; }
+.servicio__cabeza { display: flex; justify-content: space-between; align-items: center; }
+.servicio__icono { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: var(--radius-md); background: var(--surface-green); color: var(--secondary); }
+.servicio__numero { font-size: 0.82rem; color: var(--muted); }
+.servicio p { font-size: 0.95rem; }
+.servicio__enlace { margin-top: auto; }
+
+/* Compromisos ("Nuestro enfoque") */
+.compromisos { gap: var(--espacio-4); }
+.compromisos li { border-top: 2px solid var(--primary); padding-top: 1.25rem; }
+.compromisos__letra { display: block; font-size: 0.82rem; color: var(--secondary); margin-bottom: 0.6rem; }
+.compromisos p { margin: 0; }
+
+/* Pasos ("Cómo trabajamos") */
+.pasos { counter-reset: paso; }
+.pasos li { counter-increment: paso; }
+.pasos h3::before { content: "0" counter(paso); display: block; font-family: var(--font-technical); font-size: 0.85rem; font-weight: 500; color: var(--secondary); margin-bottom: var(--espacio-1); }
+
+/* ---------- Equipo ---------- */
+.retrato .imagen { border-radius: var(--radius-lg); margin-bottom: 1rem; }
+.retrato h3 { font-size: 1.125rem; margin-bottom: 0.25rem; }
+.retrato p { margin: 0; font-size: 0.875rem; color: var(--muted); }
+.persona__foto { width: 5rem; height: 5rem; border-radius: 50%; object-fit: cover; margin-bottom: var(--espacio-2); }
+.persona__foto--iniciales { display: flex; align-items: center; justify-content: center; background: var(--primary); color: var(--text-light); font-family: var(--font-heading); font-weight: 700; font-size: 1.4rem; }
+.persona h3 { margin-bottom: var(--espacio-1); }
+.persona__enfoque { color: var(--secondary); font-weight: 600; }
+.persona__titulo { font-size: 0.9rem; color: var(--muted); }
+
+/* ---------- Imágenes ---------- */
+.imagen { width: 100%; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--espacio-2); }
+.imagen--21-9 { aspect-ratio: 21 / 9; }
+.imagen--16-9 { aspect-ratio: 16 / 9; }
+.imagen--3-2 { aspect-ratio: 3 / 2; }
+.imagen--4-3 { aspect-ratio: 4 / 3; }
+.imagen--4-5 { aspect-ratio: 4 / 5; }
+.imagen--provisional { display: flex; align-items: center; justify-content: center; padding: var(--espacio-2); text-align: center; background: var(--border); color: var(--body); font-family: var(--font-technical); font-size: 0.75rem; line-height: 1.6; }
+.imagen--oscura { background: var(--primary-dark); border: 1px dashed var(--muted); color: var(--border); }
+.seccion--oscura .imagen--oscura { background: var(--primary); }
+
+/* ---------- Proyectos ---------- */
+.destacado { display: flex; flex-wrap: wrap; gap: 3rem var(--espacio-5); align-items: center; }
+.destacado > .imagen { flex: 1 1 28rem; min-width: 0; width: auto; margin: 0; border-radius: var(--radius-lg); }
+.destacado__texto { flex: 1 1 26rem; min-width: 0; display: flex; flex-direction: column; gap: 1.25rem; align-items: flex-start; }
+.destacado__texto > * { margin: 0; }
+.destacado__texto h2 { font-size: clamp(1.75rem, 3.6vw, 2.5rem); }
+.destacado__datos { display: grid; grid-template-columns: repeat(auto-fit, minmax(8.75rem, 1fr)); gap: var(--espacio-2) 2rem; width: 100%; padding: 1.25rem 0; border-top: 1px solid var(--body); border-bottom: 1px solid var(--body); }
+.destacado__datos dt { margin: 0; color: var(--border); }
+.destacado__datos dd { margin-top: 0.25rem; font-weight: 600; color: var(--text-light); }
+
+.proyecto h3 a { color: inherit; text-decoration: none; }
+.proyecto h3 a:hover { color: var(--link); }
+.ficha { display: grid; gap: var(--espacio-4); margin-top: var(--espacio-3); }
+.ficha__datos { align-self: start; background: var(--background-alt); box-shadow: none; }
+.ficha__datos h2 { font-size: 1.15rem; margin-bottom: var(--espacio-2); }
+dl { margin: 0; }
+dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-top: var(--espacio-2); }
+dt:first-child { margin-top: 0; }
+dd { margin: 0; font-weight: 500; color: var(--heading); }
+.contacto { margin: var(--espacio-3) 0; }
+
+/* ---------- Tablas (escritas en Markdown) ---------- */
+table { width: 100%; border-collapse: collapse; margin: var(--espacio-3) 0; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.75rem var(--espacio-2); border-bottom: 1px solid var(--border); vertical-align: top; }
+th { font-family: var(--font-technical); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 2px solid var(--primary); }
+
+/* ---------- Llamado a contacto ---------- */
+.llamado { display: flex; flex-wrap: wrap; gap: 2rem var(--espacio-5); align-items: center; justify-content: space-between; padding: clamp(2rem, 6vw, 4.5rem); border-radius: var(--radius-lg); background: var(--surface-green); }
+.llamado__texto { flex: 999 1 26rem; min-width: 0; }
+.llamado__texto h2 { margin: 0 0 0.75rem; }
+.llamado__texto p { margin: 0; font-size: 1.125rem; }
+
+/* ---------- Pie de página: sección oscura ---------- */
+.pie { background: var(--primary-dark); color: var(--border); padding: var(--espacio-5) 0 1.75rem; font-size: 0.95rem; }
+.pie a { color: var(--text-light); text-decoration: none; }
+.pie a:hover { color: var(--accent); }
+.pie__fila { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--espacio-4) var(--espacio-5); }
+.pie__identidad { flex: 1 1 20rem; min-width: 0; }
+.pie__identidad img { height: 2.75rem; width: auto; }
+.pie__nombre { margin: 0.9rem 0 0; font-size: 0.82rem; font-weight: 400; line-height: 1.7; }
+.pie__columna { list-style: none; margin: 0; padding: 0; }
+.pie__columna li { padding: 0.5rem 0; }
+.pie__columna a { display: inline-block; }
+.pie__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--espacio-1) var(--espacio-3); margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--body); font-size: 0.75rem; font-weight: 400; }
+
+/* Sin animaciones para quien las desactiva en su sistema */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* ---------- Pantallas medianas y grandes ---------- */
+@media (min-width: 40rem) {
+  .rejilla--2, .rejilla--4 { grid-template-columns: repeat(2, 1fr); }
+  .rejilla--3 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 62rem) {
+  .rejilla--4 { grid-template-columns: repeat(4, 1fr); }
+  .ficha { grid-template-columns: 2fr 1fr; }
+}

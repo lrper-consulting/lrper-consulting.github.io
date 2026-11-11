@@ -1,0 +1,14 @@
+{%- comment -%}
+  Tarjeta de un proyecto. Uso: {% include tarjeta-proyecto.html proyecto=p %}
+{%- endcomment -%}
+{%- assign pr = include.proyecto -%}
+<article class="tarjeta proyecto">
+  {% include imagen.html archivo=pr.imagen alt=pr.title proporcion="3-2" %}
+  <h3><a href="{{ pr.url | relative_url }}">{{ pr.title }}</a></h3>
+  <p>{{ pr.resumen }}</p>
+  <ul class="etiquetas">
+    {%- if pr.tecnologia and pr.tecnologia != "" %}<li>{{ pr.tecnologia }}</li>{% endif %}
+    {%- if pr.etapa and pr.etapa != "" %}<li>{{ pr.etapa }}</li>{% endif %}
+  </ul>
+  <p><a class="enlace-flecha" href="{{ pr.url | relative_url }}">{{ t.ver_proyecto }}</a></p>
+</article>

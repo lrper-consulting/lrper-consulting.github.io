@@ -1,0 +1,13 @@
+{%- comment -%}
+  Cabecera de una sección: antetítulo, título y texto lateral opcional.
+  Uso: {% include cabecera-seccion.html antetitulo="..." titulo="..." texto="..." %}
+{%- endcomment -%}
+<div class="cabecera">
+  <div class="cabecera__titular">
+    <p class="antetitulo">{{ include.antetitulo }}</p>
+    <h2>{{ include.titulo }}</h2>
+  </div>
+  {%- if include.texto and include.texto != "" %}
+  <p class="cabecera__texto">{{ include.texto }}</p>
+  {%- endif %}
+</div>

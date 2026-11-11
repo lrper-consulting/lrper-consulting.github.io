@@ -1,0 +1,20 @@
+---
+layout: null
+permalink: /
+---
+<!DOCTYPE html>
+<html lang="{{ site.idioma_por_defecto }}">
+<head>
+  <meta charset="utf-8">
+  <title>{{ site.title }}</title>
+  <!-- La dirección raíz redirige al idioma por defecto definido en _config.yml -->
+  <meta http-equiv="refresh" content="0; url={{ site.data.i18n[site.idioma_por_defecto].inicio_url | relative_url }}">
+  <link rel="canonical" href="{{ site.data.i18n[site.idioma_por_defecto].inicio_url | absolute_url }}">
+</head>
+<body>
+  <p>
+    <a href="{{ '/es/' | relative_url }}">Español</a> ·
+    <a href="{{ '/en/' | relative_url }}">English</a>
+  </p>
+</body>
+</html>

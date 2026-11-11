@@ -1,0 +1,53 @@
+---
+layout: default
+---
+{%- include variables.html -%}
+{%- assign n = site.data.nosotros -%}
+
+{%- comment -%} 1. Quiénes somos: el texto en Markdown de la página {%- endcomment -%}
+<section class="seccion">
+  <div class="contenedor contenedor--texto">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </div>
+</section>
+
+{%- comment -%} 2. Misión y visión {%- endcomment -%}
+<section class="seccion seccion--alterna">
+  <div class="contenedor">
+    <div class="rejilla rejilla--2">
+      <div class="tarjeta">
+        <h2>{{ t.mision }}</h2>
+        <p>{{ n.mision[lang] }}</p>
+      </div>
+      <div class="tarjeta">
+        <h2>{{ t.vision }}</h2>
+        <p>{{ n.vision[lang] }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} 3. Valores {%- endcomment -%}
+<section class="seccion">
+  <div class="contenedor">
+    <h2>{{ t.valores }}</h2>
+    <ul class="rejilla rejilla--4">
+      {%- for item in n.valores %}
+      {%- assign v = item[lang] %}
+      <li class="tarjeta tarjeta--plana">
+        <h3>{{ v.nombre }}</h3>
+        <p>{{ v.descripcion }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{%- comment -%} 4. Equipo {%- endcomment -%}
+<section class="seccion seccion--alterna" id="equipo">
+  <div class="contenedor">
+    <h2>{{ t.equipo }}</h2>
+    {% include tarjetas-equipo.html detalle="si" %}
+  </div>
+</section>

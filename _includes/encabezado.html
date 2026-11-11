@@ -1,0 +1,23 @@
+<header class="encabezado">
+  <div class="contenedor encabezado__fila">
+    <a class="marca" href="{{ t.inicio_url | relative_url }}">
+      {%- if m.logo != "" -%}
+        <img src="{{ m.logo | relative_url }}" alt="{{ site.title }}">
+      {%- else -%}
+        {% include logo-texto.html %}
+      {%- endif -%}
+    </a>
+    <nav class="navegacion" aria-label="{{ t.navegacion }}">
+      <ul class="menu">
+        {%- for item in site.data.menu %}
+        {%- assign enlace = item[lang] %}
+        <li><a href="{{ enlace.url | relative_url }}"{% if page.url == enlace.url %} aria-current="page"{% endif %}>{{ enlace.titulo }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    <div class="encabezado__acciones">
+      {% include selector-idioma.html %}
+      <a class="boton boton--acento boton--pequeno" href="{{ t.contacto_url | relative_url }}">{{ t.contacto }}</a>
+    </div>
+  </div>
+</header>

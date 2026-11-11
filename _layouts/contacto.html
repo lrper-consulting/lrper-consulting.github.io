@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{%- include variables.html -%}
+{%- assign c = m.contacto -%}
+
+<section class="seccion">
+  <div class="contenedor contenedor--texto">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+
+    {%- comment -%}
+      Datos directos desde _data/marca.yml. Los campos vacíos no se muestran.
+      El formulario de contacto se agrega en la fase 5 de la hoja de ruta.
+    {%- endcomment -%}
+    <dl class="contacto">
+      {%- if c.correo != "" %}
+      <dt>{{ t.correo }}</dt>
+      <dd><a href="mailto:{{ c.correo }}">{{ c.correo }}</a></dd>
+      {%- endif %}
+      {%- if c.linkedin != "" %}
+      <dt>{{ t.linkedin }}</dt>
+      <dd><a href="{{ c.linkedin }}" rel="noopener">{{ c.linkedin }}</a></dd>
+      {%- endif %}
+      <dt>{{ t.ciudad }}</dt>
+      <dd>{{ c.ciudad[lang] }}</dd>
+    </dl>
+    {%- if c.correo == "" and c.linkedin == "" %}
+    <p class="nota">{{ t.contacto_pendiente }}</p>
+    {%- endif %}
+  </div>
+</section>

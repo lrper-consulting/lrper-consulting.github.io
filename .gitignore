@@ -1,0 +1,11 @@
+# Archivos generados por Jekyll en la vista previa local
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+vendor/
+Gemfile.lock
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

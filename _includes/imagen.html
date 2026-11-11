@@ -1,0 +1,15 @@
+{%- comment -%}
+  Muestra una imagen de assets/img/. Si no se indica archivo, muestra un
+  recuadro provisional con la misma proporción y una etiqueta opcional.
+  Uso: {% include imagen.html archivo="foto.jpg" alt="Descripción" proporcion="3-2" etiqueta="Qué debe mostrar" %}
+  Proporciones disponibles: 21-9, 16-9, 3-2, 4-3 y 4-5.
+  oscuro="si" adapta el recuadro provisional a fondos oscuros.
+{%- endcomment -%}
+{%- assign proporcion = include.proporcion | default: "3-2" -%}
+{%- if include.archivo and include.archivo != "" -%}
+<img class="imagen imagen--{{ proporcion }}" src="{{ '/assets/img/' | append: include.archivo | relative_url }}" alt="{{ include.alt | escape }}" loading="lazy">
+{%- else -%}
+<div class="imagen imagen--provisional imagen--{{ proporcion }}{% if include.oscuro == 'si' %} imagen--oscura{% endif %}" role="img" aria-label="{{ t.imagen_pendiente }}">
+  <span>[{{ t.imagen_pendiente }}]{% if include.etiqueta and include.etiqueta != "" %}<br>{{ include.etiqueta }}{% endif %}</span>
+</div>
+{%- endif -%}

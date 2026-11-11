@@ -1,0 +1,79 @@
+# Líneas de servicio. Cada una genera una tarjeta en Inicio y en Servicios.
+# Para agregar un servicio: copiar un bloque completo y cambiar los valores.
+# icono: proceso, bateria, grafico u hoja (definidos en _includes/icono.html).
+
+- id: ingenieria-conceptual-basica
+  icono: proceso
+  es:
+    nombre: "Ingeniería conceptual y básica"
+    descripcion: "Definimos el proceso y su base de diseño."
+    entregables:
+      - "Balances de masa y energía"
+      - "Diagramas de bloques y de flujo de proceso"
+      - "Diagramas P&ID"
+      - "Memorias descriptivas y de cálculo"
+      - "Simulación de procesos"
+  en:
+    nombre: "Conceptual and basic engineering"
+    descripcion: "We define the process and its design basis."
+    entregables:
+      - "Mass and energy balances"
+      - "Block and process flow diagrams"
+      - "P&IDs"
+      - "Design basis and calculation reports"
+      - "Process simulation"
+
+- id: analisis-energetico-almacenamiento
+  icono: bateria
+  es:
+    nombre: "Análisis energético y almacenamiento"
+    descripcion: "Estudiamos cómo consume y genera energía una instalación, hora a hora, y qué solución de almacenamiento o respaldo le conviene."
+    entregables:
+      - "Perfiles de 8760 horas"
+      - "Dimensionamiento preliminar de sistemas de almacenamiento"
+      - "Comparación de alternativas tecnológicas"
+  en:
+    nombre: "Energy analysis and storage"
+    descripcion: "We study how a facility consumes and generates energy, hour by hour, and which storage or backup solution suits it."
+    entregables:
+      - "8760-hour profiles"
+      - "Preliminary sizing of storage systems"
+      - "Comparison of technology alternatives"
+
+- id: evaluacion-tecnico-economica
+  icono: grafico
+  es:
+    nombre: "Evaluación técnico-económica"
+    descripcion: "Traducimos cada alternativa técnica a costos, ingresos y riesgo."
+    entregables:
+      - "Estimación de costos de inversión y operación"
+      - "Flujo de caja"
+      - "Indicadores de rentabilidad (VAN, TIR)"
+      - "Análisis de sensibilidad y de riesgo"
+  en:
+    nombre: "Techno-economic evaluation"
+    descripcion: "We translate each technical alternative into cost, revenue and risk."
+    entregables:
+      - "Capital and operating cost estimates"
+      - "Cash flow"
+      - "Profitability indicators (NPV, IRR)"
+      - "Sensitivity and risk analysis"
+
+- id: sustentabilidad-cumplimiento
+  icono: hoja
+  es:
+    nombre: "Sustentabilidad y cumplimiento"
+    descripcion: "Cuantificamos el impacto ambiental del proyecto e identificamos los permisos que requiere."
+    entregables:
+      - "Inventario de emisiones de gases de efecto invernadero"
+      - "Huella de carbono"
+      - "Análisis de ciclo de vida"
+      - "Matriz de permisos ambientales y sectoriales"
+  en:
+    nombre: "Sustainability and compliance"
+    descripcion: "We quantify the environmental impact of the project and identify the permits it requires."
+    entregables:
+      - "Greenhouse gas emissions inventory"
+      - "Carbon footprint"
+      - "Life cycle assessment"
+      - "Environmental and sectoral permit matrix"

@@ -1,0 +1,106 @@
+---
+layout: default
+---
+{%- include variables.html -%}
+{%- comment -%} "sec" y no "s": los fragmentos incluidos reutilizan nombres cortos de variable {%- endcomment -%}
+{%- assign sec = page.secciones -%}
+
+{%- comment -%} 1. Portada: nombre de la empresa, lema e imagen de cubierta {%- endcomment -%}
+<section class="portada">
+  <div class="contenedor">
+    <div class="portada__fila">
+      <div class="portada__titular">
+        <p class="antetitulo antetitulo--claro">{{ page.portada_etiqueta }}</p>
+        <h1 class="portada__nombre">{{ site.nombre.completo[0] }}<br><span>{{ site.nombre.completo[1] }}</span></h1>
+      </div>
+      <div class="portada__lateral">
+        <p class="portada__texto">{{ page.portada_texto }}</p>
+        <div class="botones">
+          <a class="boton boton--acento" href="{{ t.servicios_url | relative_url }}">{{ t.ver_servicios }}</a>
+          <a class="boton boton--contorno" href="{{ t.proyectos_url | relative_url }}">{{ t.ver_proyectos }}</a>
+        </div>
+      </div>
+    </div>
+    <div class="portada__imagen">
+      {% include imagen.html archivo=page.portada_imagen alt=page.portada_imagen_alt proporcion="21-9" oscuro="si" etiqueta=page.portada_imagen_alt %}
+      <ul class="portada__chips">
+        {%- for chip in page.portada_chips %}
+        <li>{{ chip }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} 2. Qué hacemos {%- endcomment -%}
+<section class="seccion seccion--tras-portada">
+  <div class="contenedor">
+    {% include cabecera-seccion.html antetitulo=t.que_hacemos titulo=sec.servicios_titulo texto=sec.servicios_texto %}
+    {% include tarjetas-servicios.html %}
+  </div>
+</section>
+
+{%- comment -%} 3. Tecnologías {%- endcomment -%}
+<section class="seccion seccion--alterna">
+  <div class="contenedor">
+    {% include cabecera-seccion.html antetitulo=t.tecnologias titulo=sec.tecnologias_titulo %}
+    {% include tarjetas-tecnologias.html %}
+  </div>
+</section>
+
+{%- comment -%} 4. Proyecto destacado: el primero con "destacado: true" en este idioma {%- endcomment -%}
+{%- assign destacados = site.proyectos | where: "lang", lang | where: "destacado", true -%}
+{%- if destacados.size > 0 %}
+{%- assign pr = destacados.first %}
+<section class="seccion seccion--oscura">
+  <div class="contenedor destacado">
+    {% include imagen.html archivo=pr.imagen alt=pr.title proporcion="3-2" oscuro="si" %}
+    <div class="destacado__texto">
+      <p class="antetitulo antetitulo--acento">{{ t.proyecto_destacado }}</p>
+      <h2>{{ pr.title }}</h2>
+      <p>{{ pr.resumen }}</p>
+      <dl class="destacado__datos">
+        {%- if pr.sector and pr.sector != "" %}<div><dt>{{ t.sector }}</dt><dd>{{ pr.sector }}</dd></div>{% endif %}
+        {%- if pr.tecnologia and pr.tecnologia != "" %}<div><dt>{{ t.tecnologia }}</dt><dd>{{ pr.tecnologia }}</dd></div>{% endif %}
+        {%- if pr.etapa and pr.etapa != "" %}<div><dt>{{ t.etapa }}</dt><dd>{{ pr.etapa }}</dd></div>{% endif %}
+      </dl>
+      <a class="boton boton--acento" href="{{ pr.url | relative_url }}">{{ t.ver_proyecto }}</a>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- comment -%} 5. Nuestro enfoque {%- endcomment -%}
+{%- assign letras = "A,B,C,D,E,F" | split: "," -%}
+<section class="seccion">
+  <div class="contenedor">
+    {% include cabecera-seccion.html antetitulo=t.nuestro_enfoque titulo=sec.enfoque_titulo %}
+    <ul class="rejilla rejilla--3 compromisos">
+      {%- for item in site.data.nosotros.enfoque %}
+      {%- assign e = item[lang] %}
+      <li>
+        <span class="compromisos__letra">{{ letras[forloop.index0] }}</span>
+        <h3>{{ e.nombre }}</h3>
+        <p>{{ e.descripcion }}</p>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{%- comment -%} 6. Equipo {%- endcomment -%}
+<section class="seccion seccion--alterna">
+  <div class="contenedor">
+    <div class="cabecera cabecera--con-enlace">
+      <div class="cabecera__titular">
+        <p class="antetitulo">{{ t.equipo }}</p>
+        <h2>{{ sec.equipo_titulo }}</h2>
+      </div>
+      <a class="enlace-flecha" href="{{ t.nosotros_url | relative_url }}#equipo">{{ t.ver_equipo }}</a>
+    </div>
+    {% include tarjetas-equipo.html %}
+  </div>
+</section>
+
+{%- comment -%} 7. Llamado a contacto {%- endcomment -%}
+{% include llamado-contacto.html %}

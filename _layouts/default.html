@@ -1,19 +1,15 @@
+{%- include variables.html -%}
 <!DOCTYPE html>
-<html lang="{{ site.lang }}">
+<html lang="{{ lang }}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }} | {{ site.title }}</title>
+  {% include head.html %}
 </head>
 <body>
-  <header>
-    <strong>{{ site.title }}</strong>
-  </header>
-  <main>
+  <a class="saltar" href="#contenido">{{ t.saltar }}</a>
+  {% include encabezado.html %}
+  <main id="contenido">
     {{ content }}
   </main>
-  <footer>
-    <small>v{{ site.version }}</small>
-  </footer>
+  {% include pie.html %}
 </body>
 </html>

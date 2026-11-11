@@ -1,0 +1,35 @@
+---
+layout: default
+---
+{%- include variables.html -%}
+
+<article class="seccion">
+  <div class="contenedor">
+    <p><a class="enlace-volver" href="{{ t.proyectos_url | relative_url }}">{{ t.volver_proyectos }}</a></p>
+    <h1>{{ page.title }}</h1>
+    <p class="entradilla">{{ page.resumen }}</p>
+
+    <div class="ficha">
+      <div class="ficha__cuerpo">
+        {% include imagen.html archivo=page.imagen alt=page.title proporcion="16-9" %}
+        {{ content }}
+      </div>
+
+      {%- comment -%} Datos clave: solo se muestran los campos con valor {%- endcomment -%}
+      <aside class="ficha__datos tarjeta">
+        <h2>{{ t.datos_clave }}</h2>
+        <dl>
+          {%- if page.cliente and page.cliente != "" %}<dt>{{ t.cliente }}</dt><dd>{{ page.cliente }}</dd>{% endif %}
+          {%- if page.sector and page.sector != "" %}<dt>{{ t.sector }}</dt><dd>{{ page.sector }}</dd>{% endif %}
+          {%- if page.ubicacion and page.ubicacion != "" %}<dt>{{ t.ubicacion }}</dt><dd>{{ page.ubicacion }}</dd>{% endif %}
+          {%- if page.tecnologia and page.tecnologia != "" %}<dt>{{ t.tecnologia }}</dt><dd>{{ page.tecnologia }}</dd>{% endif %}
+          {%- if page.etapa and page.etapa != "" %}<dt>{{ t.etapa }}</dt><dd>{{ page.etapa }}</dd>{% endif %}
+          {%- if page.anio and page.anio != "" %}<dt>{{ t.anio }}</dt><dd>{{ page.anio }}</dd>{% endif %}
+          {%- if page.estado and page.estado != "" %}<dt>{{ t.estado }}</dt><dd>{{ page.estado }}</dd>{% endif %}
+        </dl>
+      </aside>
+    </div>
+  </div>
+</article>
+
+{% include llamado-contacto.html %}

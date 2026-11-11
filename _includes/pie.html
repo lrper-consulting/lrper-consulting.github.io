@@ -1,0 +1,32 @@
+<footer class="pie">
+  <div class="contenedor pie__fila">
+    <div class="pie__identidad">
+      {%- if m.logo_extendido != "" %}
+      <img src="{{ m.logo_extendido | relative_url }}" alt="{{ site.title }}">
+      {%- else %}
+      {% include logo-texto.html %}
+      {%- endif %}
+      <p class="pie__nombre">{{ site.nombre.completo[0] }}<br>{{ site.nombre.completo[1] }}</p>
+    </div>
+    <ul class="pie__columna">
+      {%- for item in site.data.menu %}
+      {%- assign enlace = item[lang] %}
+      <li><a href="{{ enlace.url | relative_url }}">{{ enlace.titulo }}</a></li>
+      {%- endfor %}
+      <li><a href="{{ t.contacto_url | relative_url }}">{{ t.contacto }}</a></li>
+    </ul>
+    <ul class="pie__columna">
+      <li>{{ m.contacto.ciudad[lang] }}</li>
+      {%- if m.contacto.correo != "" %}
+      <li><a href="mailto:{{ m.contacto.correo }}">{{ m.contacto.correo }}</a></li>
+      {%- endif %}
+      {%- if m.contacto.linkedin != "" %}
+      <li><a href="{{ m.contacto.linkedin }}" rel="noopener">{{ t.linkedin }}</a></li>
+      {%- endif %}
+    </ul>
+  </div>
+  <div class="contenedor pie__legal">
+    <span>© {{ site.time | date: "%Y" }} {{ site.title }}. {{ t.derechos }}</span>
+    <span>{{ t.version }} {{ site.version }}</span>
+  </div>
+</footer>

@@ -1,0 +1,48 @@
+# Tecnologías del bloque "Tecnologías" de la página de inicio.
+# imagen: archivo en assets/img/ (800 x 600 px). Vacío = recuadro provisional,
+#         que muestra el texto de "imagen_sugerida" como guía.
+# Para agregar una tecnología: copiar un bloque completo y cambiar los valores.
+
+- id: almacenamiento-baterias
+  imagen: ""
+  es:
+    nombre: "Almacenamiento en baterías"
+    descripcion: "Sistemas BESS para respaldo, autoabastecimiento y gestión de la demanda."
+    imagen_sugerida: "Contenedores de baterías"
+  en:
+    nombre: "Battery storage"
+    descripcion: "BESS for backup, self-supply and demand management."
+    imagen_sugerida: "Battery containers"
+
+- id: hidrogeno
+  imagen: ""
+  es:
+    nombre: "Hidrógeno"
+    descripcion: "Producción, almacenamiento y usos industriales del hidrógeno verde."
+    imagen_sugerida: "Electrolizador o estanques de hidrógeno"
+  en:
+    nombre: "Hydrogen"
+    descripcion: "Production, storage and industrial uses of green hydrogen."
+    imagen_sugerida: "Electrolyser or hydrogen tanks"
+
+- id: captura-co2
+  imagen: ""
+  es:
+    nombre: "Captura de CO₂"
+    descripcion: "Evaluación de procesos de captura en centrales térmicas e industria."
+    imagen_sugerida: "Columnas de absorción"
+  en:
+    nombre: "CO₂ capture"
+    descripcion: "Assessment of capture processes in thermal power plants and industry."
+    imagen_sugerida: "Absorption columns"
+
+- id: generacion-gas
+  imagen: ""
+  es:
+    nombre: "Generación a gas"
+    descripcion: "Ciclo combinado y gas natural licuado como respaldo de la transición."
+    imagen_sugerida: "Turbina o central de ciclo combinado"
+  en:
+    nombre: "Gas-fired generation"
+    descripcion: "Combined cycle and liquefied natural gas as backup for the transition."
+    imagen_sugerida: "Turbine or combined-cycle plant"

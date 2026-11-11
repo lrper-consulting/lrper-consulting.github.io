@@ -1,0 +1,7 @@
+{%- comment -%}
+  Variables comunes a todas las plantillas:
+  lang = idioma de la página; t = textos de interfaz en ese idioma; m = marca.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.idioma_por_defecto -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign m = site.data.marca -%}

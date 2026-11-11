@@ -1,0 +1,45 @@
+{%- comment -%}
+  Tarjetas del equipo, generadas desde _data/equipo.yml.
+  Sin parámetros: retrato, nombre y enfoque (Inicio).
+  Con detalle="si": perfil completo y especialidades (página Nosotros).
+  Sin foto, muestra un recuadro provisional (Inicio) o las iniciales (Nosotros).
+{%- endcomment -%}
+{%- if include.detalle == "si" %}
+<ul class="rejilla rejilla--2">
+  {%- for persona in site.data.equipo %}
+  {%- assign p = persona[lang] %}
+  {%- assign partes = persona.nombre | split: " " %}
+  <li class="tarjeta persona" id="{{ persona.id }}">
+    {%- if persona.foto != "" %}
+    <img class="persona__foto" src="{{ '/assets/img/' | append: persona.foto | relative_url }}" alt="{{ persona.nombre }}" width="160" height="160" loading="lazy">
+    {%- else %}
+    <div class="persona__foto persona__foto--iniciales" aria-hidden="true">{{ partes[0] | slice: 0 }}{{ partes[1] | slice: 0 }}</div>
+    {%- endif %}
+    <h3>{{ persona.nombre }}</h3>
+    <p class="persona__enfoque">{{ p.enfoque }}</p>
+    <p class="persona__titulo">{{ p.titulo }}</p>
+    <p>{{ p.perfil }}</p>
+    <h4>{{ t.especialidades }}</h4>
+    <ul class="etiquetas">
+      {%- for especialidad in p.especialidades %}
+      <li>{{ especialidad }}</li>
+      {%- endfor %}
+    </ul>
+    {%- if persona.linkedin != "" %}
+    <p><a href="{{ persona.linkedin }}" rel="noopener">{{ t.linkedin }}</a></p>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ul>
+{%- else %}
+<ul class="rejilla rejilla--retratos">
+  {%- for persona in site.data.equipo %}
+  {%- assign p = persona[lang] %}
+  <li class="retrato">
+    {% include imagen.html archivo=persona.foto alt=persona.nombre proporcion="4-5" %}
+    <h3>{{ persona.nombre }}</h3>
+    <p>{{ p.enfoque }}</p>
+  </li>
+  {%- endfor %}
+</ul>
+{%- endif %}

@@ -1,0 +1,92 @@
+# Identidad visual de la empresa.
+# Dirección C2: Industrial / Transición energética.
+#
+# Cambiar un valor aquí lo cambia en todo el sitio. Cada clave de "colores",
+# "fuentes", "medidas" y "efectos" se convierte en una variable CSS con el
+# mismo nombre: button_primary -> var(--button-primary).
+# Para agregar una variable nueva basta con agregar una línea aquí.
+
+# Logos: ruta del archivo dentro del sitio, por ejemplo "/assets/img/logo.svg".
+# Si se deja vacío (""), el sitio muestra el nombre de la empresa como texto.
+logo: ""
+logo_extendido: ""
+
+lema:
+  es: "Ingeniería temprana para proyectos de energía"
+  en: "Early-stage engineering for energy projects"
+
+colores:
+  # Marca
+  primary: "#202D32"            # Industrial Graphite
+  primary_dark: "#172126"       # Dark Graphite: secciones oscuras
+  secondary: "#26734D"          # Renewable Green
+  accent: "#F08A38"             # Energy Copper
+
+  # Fondos
+  background: "#FFFFFF"
+  background_alt: "#F1F3F3"     # Light Grey
+  surface: "#FFFFFF"
+  surface_green: "#E8F1EB"      # Pale Green
+  surface_copper: "#FCEBDD"     # Copper Light
+
+  # Texto
+  heading: "#202D32"
+  body: "#36464B"
+  muted: "#53636A"              # Slate Grey
+  text_light: "#FFFFFF"
+
+  # Bordes
+  border: "#D9E1DE"             # Muted Sage
+
+  # Enlaces
+  link: "#26734D"
+  link_hover: "#202D32"
+
+  # Botones
+  button_primary: "#202D32"
+  button_primary_hover: "#172126"
+  button_primary_text: "#FFFFFF"
+  button_secondary: "#26734D"
+  button_secondary_hover: "#1D5C3C"
+  button_secondary_text: "#FFFFFF"
+  button_accent: "#F08A38"
+  button_accent_hover: "#DB7524"   # agregado: no estaba en la propuesta original
+  button_accent_text: "#202D32"
+
+  # Estados
+  success: "#26734D"
+  warning: "#B7791F"
+  error: "#B42318"
+  info: "#2855C7"
+  focus: "#2855C7"
+  focus_inverse: "#FFFFFF"         # agregado: foco sobre fondos oscuros
+
+fuentes:
+  font_heading: "'Space Grotesk', system-ui, sans-serif"
+  font_body: "'Inter', system-ui, sans-serif"
+  font_technical: "'IBM Plex Mono', ui-monospace, monospace"
+
+# Hoja de estilos externa que carga las tipografías. Vacío ("") = no se carga
+# ninguna y el sitio usa las fuentes del sistema.
+fuentes_url: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;600;700&display=swap"
+
+medidas:
+  container_width: "1200px"
+  header_height: "80px"
+  section_spacing: "88px"
+  radius_sm: "4px"
+  radius_md: "8px"
+  radius_lg: "14px"
+
+efectos:
+  shadow_sm: "0 2px 10px rgba(32,45,50,.06)"
+  shadow_md: "0 8px 24px rgba(32,45,50,.10)"
+  transition: "200ms ease"
+
+# Datos de contacto. Los campos vacíos no se muestran.
+contacto:
+  correo: ""
+  linkedin: ""
+  ciudad:
+    es: "Santiago, Chile"
+    en: "Santiago, Chile"

@@ -1,0 +1,15 @@
+{%- comment -%}
+  Tarjetas de tecnologías, generadas desde _data/tecnologias.yml.
+{%- endcomment -%}
+<ul class="rejilla rejilla--auto">
+  {%- for tecnologia in site.data.tecnologias %}
+  {%- assign tec = tecnologia[lang] %}
+  <li class="tarjeta tarjeta--imagen">
+    {% include imagen.html archivo=tecnologia.imagen alt=tec.nombre proporcion="4-3" etiqueta=tec.imagen_sugerida %}
+    <div class="tarjeta__cuerpo">
+      <h3>{{ tec.nombre }}</h3>
+      <p>{{ tec.descripcion }}</p>
+    </div>
+  </li>
+  {%- endfor %}
+</ul>

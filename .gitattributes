@@ -1,0 +1,12 @@
+# Finales de línea uniformes (LF) sin importar el sistema operativo.
+* text=auto eol=lf
+
+# Archivos binarios: no se modifican.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.mp4 binary
+*.pdf binary

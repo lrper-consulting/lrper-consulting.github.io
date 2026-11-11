@@ -1,0 +1,59 @@
+# Misión, visión y valores, y los diferenciadores del bloque "Nuestro enfoque"
+# de la página de inicio.
+#
+# MISIÓN, VISIÓN Y VALORES SON PROVISIONALES: el equipo debe redactarlos.
+
+mision:
+  es: "Texto provisional. Aquí va la misión: qué hace la empresa, para quién y con qué propósito."
+  en: "Placeholder text. The mission goes here: what the company does, for whom and for what purpose."
+
+vision:
+  es: "Texto provisional. Aquí va la visión: dónde quiere estar la empresa en el largo plazo."
+  en: "Placeholder text. The vision goes here: where the company wants to be in the long term."
+
+valores:
+  - es:
+      nombre: "Valor 1"
+      descripcion: "Texto provisional que explica el valor en una frase."
+    en:
+      nombre: "Value 1"
+      descripcion: "Placeholder text explaining the value in one sentence."
+  - es:
+      nombre: "Valor 2"
+      descripcion: "Texto provisional que explica el valor en una frase."
+    en:
+      nombre: "Value 2"
+      descripcion: "Placeholder text explaining the value in one sentence."
+  - es:
+      nombre: "Valor 3"
+      descripcion: "Texto provisional que explica el valor en una frase."
+    en:
+      nombre: "Value 3"
+      descripcion: "Placeholder text explaining the value in one sentence."
+  - es:
+      nombre: "Valor 4"
+      descripcion: "Texto provisional que explica el valor en una frase."
+    en:
+      nombre: "Value 4"
+      descripcion: "Placeholder text explaining the value in one sentence."
+
+# Diferenciadores (borrador, a validar por el equipo).
+enfoque:
+  - es:
+      nombre: "Técnica y economía en un mismo estudio"
+      descripcion: "Cada alternativa técnica se entrega con su costo, su riesgo y su sensibilidad."
+    en:
+      nombre: "Engineering and economics in one study"
+      descripcion: "Every technical alternative comes with its cost, risk and sensitivity."
+  - es:
+      nombre: "Sustentabilidad integrada"
+      descripcion: "Emisiones, ciclo de vida y permisos se evalúan junto con la ingeniería, no después."
+    en:
+      nombre: "Sustainability built in"
+      descripcion: "Emissions, life cycle and permits are assessed alongside the engineering, not afterwards."
+  - es:
+      nombre: "Documentación que se sostiene"
+      descripcion: "Métodos y supuestos declarados, para que el estudio pueda revisarse y continuarse."
+    en:
+      nombre: "Documentation that holds up"
+      descripcion: "Stated methods and assumptions, so the study can be reviewed and continued."

@@ -1,0 +1,9 @@
+{%- comment -%}
+  Logo de texto: las dos partes de la sigla separadas por una barra de acento.
+  Se usa mientras no exista un archivo de logo en _data/marca.yml.
+{%- endcomment -%}
+<span class="logo-texto" aria-label="{{ site.title }}">
+  <span aria-hidden="true">{{ site.nombre.sigla[0] }}</span>
+  <span class="logo-texto__barra" aria-hidden="true"></span>
+  <span aria-hidden="true">{{ site.nombre.sigla[1] }}</span>
+</span>

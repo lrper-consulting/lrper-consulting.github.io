@@ -1,0 +1,29 @@
+# Pasos del bloque "Cómo trabajamos" de la página Servicios, en orden.
+
+- es:
+    nombre: "Entender"
+    descripcion: "Levantamos la operación, los datos disponibles y la decisión que el cliente necesita tomar."
+  en:
+    nombre: "Understand"
+    descripcion: "We map the operation, the available data and the decision the client needs to make."
+
+- es:
+    nombre: "Analizar"
+    descripcion: "Modelamos las alternativas con métodos y supuestos declarados."
+  en:
+    nombre: "Analyse"
+    descripcion: "We model the alternatives with stated methods and assumptions."
+
+- es:
+    nombre: "Evaluar"
+    descripcion: "Ponemos junto a cada opción técnica su costo, su riesgo y su impacto."
+  en:
+    nombre: "Evaluate"
+    descripcion: "We put cost, risk and impact next to every technical option."
+
+- es:
+    nombre: "Entregar"
+    descripcion: "Documentamos para que el estudio pueda revisarse, auditarse y continuarse."
+  en:
+    nombre: "Deliver"
+    descripcion: "We document so that the study can be reviewed, audited and continued."

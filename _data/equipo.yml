@@ -1,0 +1,120 @@
+# Integrantes del equipo, en orden alfabético por apellido.
+#
+# Para agregar un integrante: copiar un bloque completo (desde "- id:" hasta
+# el final de "en:"), pegarlo en su posición y cambiar los valores.
+#
+# foto: nombre del archivo en assets/img/, por ejemplo "equipo-nombre-apellido.jpg"
+#       (800 x 800 px). Si se deja vacío, se muestran las iniciales.
+# linkedin: dirección completa del perfil. Si se deja vacío, no se muestra.
+#
+# Los integrantes 1 a 4 son PROVISIONALES: sus textos reales están en el
+# borrador de contenido y se copian aquí cuando cada uno apruebe su perfil.
+
+- id: integrante-1
+  nombre: "Integrante 1"
+  foto: ""
+  linkedin: ""
+  es:
+    titulo: "Título profesional, Universidad"
+    enfoque: "Área de enfoque"
+    perfil: "Texto provisional. Aquí va un párrafo de unas 60 palabras que describe la experiencia del integrante y lo que aporta a los proyectos."
+    especialidades:
+      - "Especialidad 1"
+      - "Especialidad 2"
+      - "Especialidad 3"
+  en:
+    titulo: "Professional degree, University"
+    enfoque: "Area of focus"
+    perfil: "Placeholder text. A paragraph of about 60 words describing the team member's experience and what they bring to projects goes here."
+    especialidades:
+      - "Expertise 1"
+      - "Expertise 2"
+      - "Expertise 3"
+
+- id: integrante-2
+  nombre: "Integrante 2"
+  foto: ""
+  linkedin: ""
+  es:
+    titulo: "Título profesional, Universidad"
+    enfoque: "Área de enfoque"
+    perfil: "Texto provisional. Aquí va un párrafo de unas 60 palabras que describe la experiencia del integrante y lo que aporta a los proyectos."
+    especialidades:
+      - "Especialidad 1"
+      - "Especialidad 2"
+      - "Especialidad 3"
+  en:
+    titulo: "Professional degree, University"
+    enfoque: "Area of focus"
+    perfil: "Placeholder text. A paragraph of about 60 words describing the team member's experience and what they bring to projects goes here."
+    especialidades:
+      - "Expertise 1"
+      - "Expertise 2"
+      - "Expertise 3"
+
+- id: integrante-3
+  nombre: "Integrante 3"
+  foto: ""
+  linkedin: ""
+  es:
+    titulo: "Título profesional, Universidad"
+    enfoque: "Área de enfoque"
+    perfil: "Texto provisional. Aquí va un párrafo de unas 60 palabras que describe la experiencia del integrante y lo que aporta a los proyectos."
+    especialidades:
+      - "Especialidad 1"
+      - "Especialidad 2"
+      - "Especialidad 3"
+  en:
+    titulo: "Professional degree, University"
+    enfoque: "Area of focus"
+    perfil: "Placeholder text. A paragraph of about 60 words describing the team member's experience and what they bring to projects goes here."
+    especialidades:
+      - "Expertise 1"
+      - "Expertise 2"
+      - "Expertise 3"
+
+- id: integrante-4
+  nombre: "Integrante 4"
+  foto: ""
+  linkedin: ""
+  es:
+    titulo: "Título profesional, Universidad"
+    enfoque: "Área de enfoque"
+    perfil: "Texto provisional. Aquí va un párrafo de unas 60 palabras que describe la experiencia del integrante y lo que aporta a los proyectos."
+    especialidades:
+      - "Especialidad 1"
+      - "Especialidad 2"
+      - "Especialidad 3"
+  en:
+    titulo: "Professional degree, University"
+    enfoque: "Area of focus"
+    perfil: "Placeholder text. A paragraph of about 60 words describing the team member's experience and what they bring to projects goes here."
+    especialidades:
+      - "Expertise 1"
+      - "Expertise 2"
+      - "Expertise 3"
+
+- id: ignacio-tabilo
+  nombre: "Ignacio Tabilo"
+  foto: ""
+  linkedin: ""
+  es:
+    titulo: "Ingeniero Civil de Industrias con Diploma en Ingeniería Química y Magíster en Ciencias de la Ingeniería, Pontificia Universidad Católica de Chile"
+    enfoque: "Procesos, evaluación técnico-económica y documentación"
+    perfil: "Ignacio diagnostica procesos con datos de planta y de laboratorio, y acompaña cada respuesta técnica con su consecuencia económica. Optimizó el tratamiento de agua de una planta exportadora de alimentos, integró el equipo de un estudio de I+D para la minería del cobre y publicó como primer autor una investigación sobre solventes renovables para la captura de CO₂. Documenta y capacita para que las soluciones perduren después del proyecto."
+    especialidades:
+      - "Diagnóstico y optimización de procesos"
+      - "Evaluación técnico-económica"
+      - "Simulación de procesos"
+      - "Descarbonización e hidrógeno"
+      - "Procedimientos y capacitación"
+  en:
+    titulo: "Ingeniero Civil de Industrias (industrial engineering) with a Diploma in Chemical Engineering and a Master of Science in Engineering, Pontificia Universidad Católica de Chile"
+    enfoque: "Process engineering, techno-economic evaluation and documentation"
+    perfil: "Ignacio diagnoses processes with plant and laboratory data, and attaches the economic consequence to every technical answer. He optimized the water treatment of a food export plant, was part of the team behind an R&D study for the copper mining industry, and published first-author research on renewable solvents for CO₂ capture. He documents and trains so that solutions outlast the project."
+    especialidades:
+      - "Process diagnosis and optimization"
+      - "Techno-economic evaluation"
+      - "Process simulation"
+      - "Decarbonization and hydrogen"
+      - "Procedures and training"

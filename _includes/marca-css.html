@@ -1,0 +1,22 @@
+{%- comment -%}
+  Convierte los valores de _data/marca.yml en variables CSS.
+  Cada clave se vuelve una variable con el mismo nombre (guion bajo -> guion):
+  button_primary -> --button-primary.
+  main.css usa solo estas variables: no contiene colores ni fuentes propios.
+{%- endcomment -%}
+<style>
+  :root {
+    {%- for par in m.colores %}
+    --{{ par[0] | replace: "_", "-" }}: {{ par[1] }};
+    {%- endfor %}
+    {%- for par in m.fuentes %}
+    --{{ par[0] | replace: "_", "-" }}: {{ par[1] }};
+    {%- endfor %}
+    {%- for par in m.medidas %}
+    --{{ par[0] | replace: "_", "-" }}: {{ par[1] }};
+    {%- endfor %}
+    {%- for par in m.efectos %}
+    --{{ par[0] | replace: "_", "-" }}: {{ par[1] }};
+    {%- endfor %}
+  }
+</style>

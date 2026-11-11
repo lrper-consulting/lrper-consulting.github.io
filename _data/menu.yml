@@ -1,0 +1,26 @@
+# Enlaces del menú principal, en el orden en que aparecen.
+# Cada enlace tiene su título y dirección en ambos idiomas.
+
+- ref: nosotros
+  es:
+    titulo: "Nosotros"
+    url: "/es/nosotros/"
+  en:
+    titulo: "About"
+    url: "/en/about/"
+
+- ref: servicios
+  es:
+    titulo: "Servicios"
+    url: "/es/servicios/"
+  en:
+    titulo: "Services"
+    url: "/en/services/"
+
+- ref: proyectos
+  es:
+    titulo: "Proyectos"
+    url: "/es/proyectos/"
+  en:
+    titulo: "Projects"
+    url: "/en/projects/"

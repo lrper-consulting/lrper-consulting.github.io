@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{%- include variables.html -%}
+{%- assign lista = site.proyectos | where: "lang", lang -%}
+
+<section class="seccion">
+  <div class="contenedor">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+    {%- if lista.size > 0 %}
+    <div class="rejilla rejilla--3">
+      {%- for proyecto in lista %}
+      {% include tarjeta-proyecto.html proyecto=proyecto %}
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <p>{{ t.sin_proyectos }}</p>
+    {%- endif %}
+  </div>
+</section>

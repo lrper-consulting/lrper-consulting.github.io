@@ -1,0 +1,40 @@
+---
+layout: default
+---
+{%- include variables.html -%}
+
+{%- comment -%} 1 y 2. Introducción y etapas del proyecto: el Markdown de la página {%- endcomment -%}
+<section class="seccion">
+  <div class="contenedor contenedor--texto">
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </div>
+</section>
+
+{%- comment -%} 3. Servicios {%- endcomment -%}
+<section class="seccion seccion--alterna">
+  <div class="contenedor">
+    <h2>{{ t.servicios }}</h2>
+    {% include tarjetas-servicios.html detalle="si" %}
+    <p class="nota">{{ t.nota_asociados }}</p>
+  </div>
+</section>
+
+{%- comment -%} 4. Cómo trabajamos {%- endcomment -%}
+<section class="seccion">
+  <div class="contenedor">
+    <h2>{{ t.como_trabajamos }}</h2>
+    <ol class="rejilla rejilla--4 pasos">
+      {%- for item in site.data.metodologia %}
+      {%- assign paso = item[lang] %}
+      <li class="tarjeta tarjeta--plana">
+        <h3>{{ paso.nombre }}</h3>
+        <p>{{ paso.descripcion }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+{%- comment -%} 5. Llamado a contacto {%- endcomment -%}
+{% include llamado-contacto.html %}

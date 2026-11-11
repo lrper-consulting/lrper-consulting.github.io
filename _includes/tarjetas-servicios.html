@@ -1,0 +1,28 @@
+{%- comment -%}
+  Tarjetas de servicios, generadas desde _data/servicios.yml.
+  Sin parámetros: tarjeta resumida con número, ícono y enlace (Inicio).
+  Con detalle="si": incluye la lista de entregables (página Servicios).
+{%- endcomment -%}
+<ul class="rejilla {% if include.detalle == 'si' %}rejilla--2{% else %}rejilla--auto{% endif %}">
+  {%- for servicio in site.data.servicios %}
+  {%- assign s = servicio[lang] %}
+  <li class="tarjeta servicio" id="{{ servicio.id }}">
+    <div class="servicio__cabeza">
+      <span class="servicio__icono">{% include icono.html nombre=servicio.icono %}</span>
+      <span class="servicio__numero">{{ forloop.index | prepend: "0" }}</span>
+    </div>
+    <h3>{{ s.nombre }}</h3>
+    <p>{{ s.descripcion }}</p>
+    {%- if include.detalle == "si" %}
+    <h4>{{ t.entregables }}</h4>
+    <ul class="lista">
+      {%- for entregable in s.entregables %}
+      <li>{{ entregable }}</li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <a class="enlace-flecha servicio__enlace" href="{{ t.servicios_url | relative_url }}#{{ servicio.id }}">{{ t.ver_detalle }}</a>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ul>

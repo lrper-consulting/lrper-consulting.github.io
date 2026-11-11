@@ -1,4 +1,41 @@
-tittle: "L.R.P - Eng. Consulting"
-description: "Leading Renewable Projects - Engineering Resources"
-lang: es
-version: 0.1.0
+# Configuración global del sitio.
+# El nombre de la empresa se cambia SOLO aquí (campos "title" y "nombre").
+# Colores, logo y lema se cambian en _data/marca.yml.
+
+# Nombre corto: pestaña del navegador y aviso de derechos.
+title: "LRPER"
+
+# sigla: las dos partes del logo de texto, separadas por una barra (LRP | ER).
+# completo: las dos líneas del nombre completo (portada y pie de página).
+nombre:
+  sigla: ["LRP", "ER"]
+  completo: ["Leading Renewable Projects", "Engineering Resources"]
+
+description: "Leading Renewable Projects | Engineering Resources"
+version: 0.4.0
+
+# Dirección del sitio. Si el sitio pasa a una subdirección (por ejemplo
+# matriz.com/chile), se cambia "baseurl" a "/chile" y nada más.
+url: "https://lrp-eng-consulting.github.io"
+baseurl: ""
+
+# Idioma al que redirige la dirección raíz del sitio.
+idioma_por_defecto: es
+
+markdown: kramdown
+
+# Los proyectos son una colección: cada archivo en _proyectos/ genera una página.
+collections:
+  proyectos:
+    output: true
+
+# Archivos del repositorio que no forman parte del sitio publicado.
+exclude:
+  - README.md
+  - CONTRIBUTING.md
+  - ROADMAP.md
+  - CHANGELOG.md
+  - docs/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/

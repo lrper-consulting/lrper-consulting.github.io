@@ -1,0 +1,13 @@
+{%- comment -%}
+  Íconos de línea. Uso: {% include icono.html nombre="bateria" %}
+  Nombres disponibles: proceso, bateria, grafico, hoja.
+{%- endcomment -%}
+<svg class="icono" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+{%- case include.nombre -%}
+{%- when "proceso" -%}<rect x="3" y="4" width="6" height="6" rx="1"></rect><rect x="15" y="14" width="6" height="6" rx="1"></rect><path d="M9 7h6a3 3 0 0 1 3 3v4"></path><path d="M6 10v7h9"></path>
+{%- when "bateria" -%}<rect x="2" y="7" width="17" height="10" rx="2"></rect><path d="M22 10.5v3"></path><path d="M11.5 9.5l-2.5 3h3l-2.5 3"></path>
+{%- when "grafico" -%}<path d="M3 3v18h18"></path><path d="M7 15l4-5 3 3 5-7"></path>
+{%- when "hoja" -%}<path d="M5 19c0-8 5-13 14-14 0 9-4 14-12 14"></path><path d="M5 19c2-5 5-8 9-10"></path>
+{%- else -%}<circle cx="12" cy="12" r="8"></circle>
+{%- endcase -%}
+</svg>

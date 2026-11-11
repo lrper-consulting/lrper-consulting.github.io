@@ -1,0 +1,16 @@
+{%- comment -%}
+  Enlace a la misma página en el otro idioma.
+  Dos páginas son "la misma" cuando comparten el campo "ref" de su encabezado.
+  Si no existe la equivalente, el enlace lleva al inicio del otro idioma.
+{%- endcomment -%}
+{%- if lang == "es" -%}{%- assign otro = "en" -%}{%- else -%}{%- assign otro = "es" -%}{%- endif -%}
+{%- assign destino = site.data.i18n[otro].inicio_url -%}
+{%- if page.ref -%}
+  {%- assign candidatas = site.pages | concat: site.proyectos -%}
+  {%- for candidata in candidatas -%}
+    {%- if candidata.ref == page.ref and candidata.lang == otro -%}
+      {%- assign destino = candidata.url -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+<a class="idioma" href="{{ destino | relative_url }}" lang="{{ otro }}" hreflang="{{ otro }}">{{ site.data.i18n[otro].nombre_idioma }}</a>
