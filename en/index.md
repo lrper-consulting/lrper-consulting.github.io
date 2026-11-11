@@ -21,5 +21,4 @@ secciones:
   servicios_texto: "We support energy and industrial companies in the earliest stages, when decisions cost little and matter most."
   tecnologias_titulo: "The energy transition technologies we study"
   enfoque_titulo: "Three commitments in every study"
-  equipo_titulo: "Process, energy and sustainability engineers"
 ---

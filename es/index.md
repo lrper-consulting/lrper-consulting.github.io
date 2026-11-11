@@ -21,5 +21,4 @@ secciones:
   servicios_texto: "Acompañamos a empresas de energía e industria en las primeras etapas, cuando las decisiones cuestan poco y pesan mucho."
   tecnologias_titulo: "Las tecnologías de la transición energética que estudiamos"
   enfoque_titulo: "Tres compromisos en cada estudio"
-  equipo_titulo: "Ingenieros de procesos, energía y sustentabilidad"
 ---

@@ -4,38 +4,44 @@ layout: default
 {%- include variables.html -%}
 {%- assign n = site.data.nosotros -%}
 
-{%- comment -%} 1. Quiénes somos: el texto en Markdown de la página {%- endcomment -%}
-<section class="seccion">
-  <div class="contenedor contenedor--texto">
-    <h1>{{ page.title }}</h1>
-    {{ content }}
+{%- comment -%} 1. Quiénes somos: título y el texto en Markdown de la página {%- endcomment -%}
+<section class="cabecera-pagina">
+  <div class="contenedor cabecera-pagina__fila">
+    <div class="cabecera-pagina__titular">
+      <p class="antetitulo antetitulo--acento">{{ t.nosotros }}</p>
+      <h1>{{ page.title }}</h1>
+    </div>
+    <div class="cabecera-pagina__texto">
+      {{ content }}
+    </div>
   </div>
 </section>
 
 {%- comment -%} 2. Misión y visión {%- endcomment -%}
-<section class="seccion seccion--alterna">
+<section class="seccion">
   <div class="contenedor">
     <div class="rejilla rejilla--2">
-      <div class="tarjeta">
-        <h2>{{ t.mision }}</h2>
-        <p>{{ n.mision[lang] }}</p>
-      </div>
-      <div class="tarjeta">
-        <h2>{{ t.vision }}</h2>
-        <p>{{ n.vision[lang] }}</p>
-      </div>
+      <article class="panel panel--verde">
+        <h2 class="antetitulo">{{ t.mision }}</h2>
+        <p class="panel__texto">{{ n.mision[lang] }}</p>
+      </article>
+      <article class="panel panel--cobre">
+        <h2 class="antetitulo antetitulo--neutro">{{ t.vision }}</h2>
+        <p class="panel__texto">{{ n.vision[lang] }}</p>
+      </article>
     </div>
   </div>
 </section>
 
 {%- comment -%} 3. Valores {%- endcomment -%}
-<section class="seccion">
+<section class="seccion seccion--alterna">
   <div class="contenedor">
-    <h2>{{ t.valores }}</h2>
-    <ul class="rejilla rejilla--4">
+    {% include cabecera-seccion.html antetitulo=t.valores titulo=t.valores_titulo %}
+    <ul class="rejilla rejilla--4 compromisos">
       {%- for item in n.valores %}
       {%- assign v = item[lang] %}
-      <li class="tarjeta tarjeta--plana">
+      <li>
+        <span class="compromisos__letra">{{ forloop.index | prepend: "0" }}</span>
         <h3>{{ v.nombre }}</h3>
         <p>{{ v.descripcion }}</p>
       </li>
@@ -44,10 +50,20 @@ layout: default
   </div>
 </section>
 
-{%- comment -%} 4. Equipo {%- endcomment -%}
-<section class="seccion seccion--alterna" id="equipo">
+{%- comment -%} 4. Equipo: mazo de cartas {%- endcomment -%}
+<section class="seccion seccion--oscura seccion--mazo" id="equipo">
   <div class="contenedor">
-    <h2>{{ t.equipo }}</h2>
-    {% include tarjetas-equipo.html detalle="si" %}
+    <div class="cabecera">
+      <div class="cabecera__titular">
+        <p class="antetitulo antetitulo--acento">{{ t.equipo }}</p>
+        <h2>{{ t.equipo_titulo }}</h2>
+      </div>
+      <p class="cabecera__texto mazo__ayuda">{{ t.mazo_ayuda }}</p>
+    </div>
+    {% include mazo-equipo.html %}
   </div>
 </section>
+
+{% include llamado-contacto.html %}
+
+<script src="{{ '/assets/js/mazo.js' | relative_url }}" defer></script>

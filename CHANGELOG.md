@@ -2,6 +2,18 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). El sitio usa [Semantic Versioning](https://semver.org/lang/es/), según las reglas de `CONTRIBUTING.md`.
 
+## [0.5.0] - 2026-11-10
+
+### Agregado
+
+- Diseño de la página Nosotros: cabecera oscura, paneles de misión y visión, valores numerados.
+- Equipo como mazo de cartas interactivo (`_includes/mazo-equipo.html` y `assets/js/mazo.js`), con lista de perfiles como alternativa sin JavaScript.
+
+### Cambiado
+
+- Dirección del sitio: `https://lrper.github.io`.
+- El título del bloque de equipo pasa a `_data/i18n.yml` para compartirlo entre Inicio y Nosotros.
+
 ## [0.4.0] - 2026-11-10
 
 ### Agregado

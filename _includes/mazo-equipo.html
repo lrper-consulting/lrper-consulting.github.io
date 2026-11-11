@@ -1,0 +1,45 @@
+{%- comment -%}
+  Equipo como mazo de cartas, generado desde _data/equipo.yml.
+  Con JavaScript: las cartas se abren en abanico y la carta elegida muestra
+  su perfil en el panel lateral (assets/js/mazo.js).
+  Sin JavaScript: el mazo se oculta y se muestran todos los perfiles en lista.
+  Admite cualquier número de integrantes.
+{%- endcomment -%}
+<div class="mazo" data-mazo>
+  <div class="mazo__cartas">
+    <div class="mazo__abanico">
+      {%- for persona in site.data.equipo %}
+      {%- assign p = persona[lang] %}
+      <button type="button" class="carta" data-carta aria-pressed="false" aria-controls="perfil-{{ persona.id }}">
+        {%- if persona.foto != "" %}
+        <img class="carta__foto" src="{{ '/assets/img/' | append: persona.foto | relative_url }}" alt="" loading="lazy">
+        {%- else %}
+        <span class="carta__foto carta__foto--provisional" aria-hidden="true">[{{ t.foto_pendiente }}]</span>
+        {%- endif %}
+        <span class="carta__nombre">{{ persona.nombre }}</span>
+        <span class="carta__enfoque">{{ p.enfoque }}</span>
+      </button>
+      {%- endfor %}
+    </div>
+  </div>
+  <div class="mazo__perfiles" aria-live="polite">
+    {%- for persona in site.data.equipo %}
+    {%- assign p = persona[lang] %}
+    <article class="perfil" id="perfil-{{ persona.id }}" data-perfil>
+      <p class="antetitulo antetitulo--acento">{{ p.enfoque }}</p>
+      <h3>{{ persona.nombre }}</h3>
+      <p class="perfil__titulo">{{ p.titulo }}</p>
+      <p>{{ p.perfil }}</p>
+      <h4>{{ t.especialidades }}</h4>
+      <ul class="etiquetas etiquetas--oscuras">
+        {%- for especialidad in p.especialidades %}
+        <li>{{ especialidad }}</li>
+        {%- endfor %}
+      </ul>
+      {%- if persona.linkedin != "" %}
+      <a class="perfil__enlace" href="{{ persona.linkedin }}" rel="noopener">{{ t.linkedin }} →</a>
+      {%- endif %}
+    </article>
+    {%- endfor %}
+  </div>
+</div>
