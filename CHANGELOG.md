@@ -11,7 +11,7 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). E
 
 ### Cambiado
 
-- Dirección del sitio: `https://lrper.github.io`.
+- Dirección del sitio: `https://lrper-consulting.github.io`.
 - El título del bloque de equipo pasa a `_data/i18n.yml` para compartirlo entre Inicio y Nosotros.
 
 ## [0.4.0] - 2026-11-10

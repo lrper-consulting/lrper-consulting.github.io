@@ -4,7 +4,7 @@ Leading Renewable Projects | Engineering Resources
 
 Sitio estático de la empresa, en español e inglés, construido con Jekyll y publicado con GitHub Pages.
 
-- **Sitio publicado:** https://lrper.github.io
+- **Sitio publicado:** https://lrper-consulting.github.io
 - **Cómo editar:** leer `CONTRIBUTING.md` antes del primer cambio.
 - **Plan de trabajo:** `ROADMAP.md`.
 - **Historial de versiones:** `CHANGELOG.md`.
