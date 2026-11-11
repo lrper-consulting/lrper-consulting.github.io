@@ -4,95 +4,110 @@
 # el final de "en:"), pegarlo en su posición y cambiar los valores.
 #
 # foto: nombre del archivo en assets/img/, por ejemplo "equipo-nombre-apellido.jpg"
-#       (800 x 800 px). Si se deja vacío, se muestran las iniciales.
+#       (800 x 1000 px). Si se deja vacío, se muestra un recuadro provisional.
 # linkedin: dirección completa del perfil. Si se deja vacío, no se muestra.
 #
-# Los integrantes 1 a 4 son PROVISIONALES: sus textos reales están en el
-# borrador de contenido y se copian aquí cuando cada uno apruebe su perfil.
+# Empresas y clientes se describen por sector, sin nombrarlos.
 
-- id: integrante-1
-  nombre: "Integrante 1"
+- id: diego-arauz
+  nombre: "Diego Arauz"
   foto: ""
   linkedin: ""
   es:
-    titulo: "Título profesional, Universidad"
-    enfoque: "Área de enfoque"
-    perfil: "Texto provisional. Aquí va un párrafo de unas 60 palabras que describe la experiencia del integrante y lo que aporta a los proyectos."
+    titulo: "Ingeniero Civil Químico Industrial, Pontificia Universidad Católica de Chile"
+    enfoque: "Diseño y simulación de procesos"
+    perfil: "Diego diseña y simula procesos industriales con foco en eficiencia energética y emisiones. Lideró el diseño de una planta de combustible sostenible de aviación, distinguido como mejor proyecto Capstone 2024 de su carrera, y evaluó técnica y económicamente la captura de CO₂ en una central termoeléctrica. Tiene experiencia en comparación de desempeño y auditoría de emisiones en la industria forestal, y desarrolló su trabajo de título en una consultora internacional de ingeniería."
     especialidades:
-      - "Especialidad 1"
-      - "Especialidad 2"
-      - "Especialidad 3"
+      - "Diseño y simulación de procesos"
+      - "Integración energética"
+      - "Análisis de 8760 horas"
+      - "Emisiones de gases de efecto invernadero"
+      - "Diagramas P&ID y sistemas contra incendio"
   en:
-    titulo: "Professional degree, University"
-    enfoque: "Area of focus"
-    perfil: "Placeholder text. A paragraph of about 60 words describing the team member's experience and what they bring to projects goes here."
+    titulo: "Ingeniero Civil Químico Industrial (chemical and industrial engineering), Pontificia Universidad Católica de Chile"
+    enfoque: "Process design and simulation"
+    perfil: "Diego designs and simulates industrial processes with a focus on energy efficiency and emissions. He led the design of a sustainable aviation fuel plant, named best Capstone project of 2024 in his programme, and carried out a techno-economic assessment of CO₂ capture at a thermal power plant. He has experience in sustainability benchmarking and emissions auditing in the forestry industry, and completed his degree project at an international engineering consultancy."
     especialidades:
-      - "Expertise 1"
-      - "Expertise 2"
-      - "Expertise 3"
+      - "Process design and simulation"
+      - "Heat integration"
+      - "8760-hour analysis"
+      - "Greenhouse gas emissions"
+      - "P&IDs and fire protection systems"
 
-- id: integrante-2
-  nombre: "Integrante 2"
+- id: kieran-conradie
+  nombre: "Kieran Conradie"
   foto: ""
   linkedin: ""
   es:
-    titulo: "Título profesional, Universidad"
-    enfoque: "Área de enfoque"
-    perfil: "Texto provisional. Aquí va un párrafo de unas 60 palabras que describe la experiencia del integrante y lo que aporta a los proyectos."
+    titulo: "Ingeniero Civil de Industrias con Diploma en Ingeniería Química y Magíster en Ciencias de la Ingeniería, Pontificia Universidad Católica de Chile"
+    enfoque: "Finanzas, optimización y almacenamiento de energía"
+    perfil: "Kieran combina la evaluación financiera de proyectos con la modelación matemática. Desarrolló una herramienta de dimensionamiento y evaluación técnico-económica para plantas de regasificación de gas natural licuado, trabajó con modelos de optimización de generación híbrida en una empresa generadora y aplicó valoración por opciones reales al análisis de riesgo. Es autor de una publicación científica sobre almacenamiento de hidrógeno y dicta el curso Fenómenos de Transporte en la UC."
     especialidades:
-      - "Especialidad 1"
-      - "Especialidad 2"
-      - "Especialidad 3"
+      - "Evaluación financiera y análisis de riesgo"
+      - "Optimización y modelación matemática"
+      - "Almacenamiento de energía"
+      - "Análisis de ciclo de vida"
+      - "Control de procesos"
   en:
-    titulo: "Professional degree, University"
-    enfoque: "Area of focus"
-    perfil: "Placeholder text. A paragraph of about 60 words describing the team member's experience and what they bring to projects goes here."
+    titulo: "Ingeniero Civil de Industrias (industrial engineering) with a Diploma in Chemical Engineering and a Master of Science in Engineering, Pontificia Universidad Católica de Chile"
+    enfoque: "Finance, optimization and energy storage"
+    perfil: "Kieran combines financial project evaluation with mathematical modelling. He built an equipment sizing and techno-economic evaluation tool for liquefied natural gas regasification plants, worked with optimization models for hybrid generation at a power generation company, and applied real options valuation to risk analysis. He is the author of a scientific publication on hydrogen storage and lectures Transport Phenomena at UC."
     especialidades:
-      - "Expertise 1"
-      - "Expertise 2"
-      - "Expertise 3"
+      - "Financial evaluation and risk analysis"
+      - "Optimization and mathematical modelling"
+      - "Energy storage"
+      - "Life cycle assessment"
+      - "Process control"
 
-- id: integrante-3
-  nombre: "Integrante 3"
+- id: maurice-moreau
+  nombre: "Maurice Moreau"
   foto: ""
   linkedin: ""
   es:
-    titulo: "Título profesional, Universidad"
-    enfoque: "Área de enfoque"
-    perfil: "Texto provisional. Aquí va un párrafo de unas 60 palabras que describe la experiencia del integrante y lo que aporta a los proyectos."
+    titulo: "Ingeniero Civil en Bioingeniería con mención en Ingeniería Civil Mecánica, Universidad Adolfo Ibáñez"
+    enfoque: "Permisos ambientales, cumplimiento y documentación de ingeniería"
+    perfil: "Maurice trabaja en permisos ambientales y sectoriales para proyectos mineros nacionales e internacionales en una firma global de ingeniería. Elabora documentación de factibilidad ambiental, tramita declaraciones y estudios de impacto ambiental, redacta memorias descriptivas y de cálculo, y apoya a las disciplinas de Procesos y Piping. Su memoria, realizada en una planta concentradora de cobre, estudió alternativas sustentables para aumentar la recuperación de agua."
     especialidades:
-      - "Especialidad 1"
-      - "Especialidad 2"
-      - "Especialidad 3"
+      - "Permisos ambientales y sectoriales"
+      - "Memorias descriptivas y de cálculo"
+      - "Diagramas P&ID y planos"
+      - "Gestión hídrica"
+      - "Manejo de residuos"
   en:
-    titulo: "Professional degree, University"
-    enfoque: "Area of focus"
-    perfil: "Placeholder text. A paragraph of about 60 words describing the team member's experience and what they bring to projects goes here."
+    titulo: "Ingeniero Civil en Bioingeniería (bioengineering) with a specialization in Mechanical Engineering, Universidad Adolfo Ibáñez"
+    enfoque: "Environmental permitting, compliance and engineering documentation"
+    perfil: "Maurice works on environmental and sectoral permitting for national and international mining projects at a global engineering firm. He prepares environmental feasibility documentation, manages environmental impact declarations and assessments, writes design basis and calculation reports, and supports the Process and Piping disciplines. His degree thesis, carried out at a copper concentrator plant, studied sustainable alternatives to increase water recovery."
     especialidades:
-      - "Expertise 1"
-      - "Expertise 2"
-      - "Expertise 3"
+      - "Environmental and sectoral permitting"
+      - "Design basis and calculation reports"
+      - "P&IDs and drawings"
+      - "Water management"
+      - "Waste management"
 
-- id: integrante-4
-  nombre: "Integrante 4"
+- id: jose-mario-paredes
+  nombre: "José Mario Paredes"
   foto: ""
   linkedin: ""
   es:
-    titulo: "Título profesional, Universidad"
-    enfoque: "Área de enfoque"
-    perfil: "Texto provisional. Aquí va un párrafo de unas 60 palabras que describe la experiencia del integrante y lo que aporta a los proyectos."
+    titulo: "Ingeniería Civil en Bioingeniería, Universidad Adolfo Ibáñez (en proceso de titulación)"
+    enfoque: "Huella de carbono, emisiones y bioprocesos"
+    perfil: "José Mario procesó los datos de huella de carbono de una empresa forestal desde su gerencia de sostenibilidad, mejorando el código que los extrae de la plataforma corporativa. Desarrolla su tesis en una planta de valorización de aceite de cocina usado, donde optimiza el proceso de decantación. Aporta cálculo de emisiones, análisis de costos, diseño experimental y análisis de datos con Python y R."
     especialidades:
-      - "Especialidad 1"
-      - "Especialidad 2"
-      - "Especialidad 3"
+      - "Huella de carbono y emisiones"
+      - "Análisis de costos y margen"
+      - "Estados del arte"
+      - "Diseño experimental"
+      - "Bioprocesos y residuos"
   en:
-    titulo: "Professional degree, University"
-    enfoque: "Area of focus"
-    perfil: "Placeholder text. A paragraph of about 60 words describing the team member's experience and what they bring to projects goes here."
+    titulo: "Ingeniería Civil en Bioingeniería (bioengineering), Universidad Adolfo Ibáñez (degree in progress)"
+    enfoque: "Carbon footprint, emissions and bioprocesses"
+    perfil: "José Mario processed carbon footprint data for a forestry company from within its sustainability department, improving the code that extracts it from the corporate platform. He is completing his thesis at a used cooking oil recovery plant, where he is optimizing the settling process. He contributes emissions calculations, cost analysis, experimental design, and data analysis in Python and R."
     especialidades:
-      - "Expertise 1"
-      - "Expertise 2"
-      - "Expertise 3"
+      - "Carbon footprint and emissions"
+      - "Cost and margin analysis"
+      - "State-of-the-art reviews"
+      - "Experimental design"
+      - "Bioprocesses and waste"
 
 - id: ignacio-tabilo
   nombre: "Ignacio Tabilo"
