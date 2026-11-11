@@ -70,13 +70,15 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .saltar:focus { left: var(--espacio-2); top: var(--espacio-2); background: var(--surface); padding: var(--espacio-1) var(--espacio-2); z-index: 10; }
 
 /* Antetítulo y cabecera de sección */
-.antetitulo { margin: 0 0 0.75rem; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--secondary); }
+.antetitulo { margin: 0 0 0.875rem; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--secondary); }
 .antetitulo--claro { color: var(--border); }
 .antetitulo--acento { color: var(--accent); }
 .cabecera { display: flex; flex-wrap: wrap; gap: var(--espacio-2) var(--espacio-5); align-items: flex-end; margin-bottom: 3rem; }
 .cabecera__titular { flex: 999 1 26rem; min-width: 0; }
 .cabecera__titular h2 { margin: 0; max-width: 24ch; }
 .cabecera__texto { flex: 1 1 21rem; min-width: 0; margin: 0; color: var(--muted); }
+/* Con título y texto lado a lado, el texto se alinea a la derecha */
+@media (min-width: 54rem) { .cabecera__texto { text-align: right; } }
 .cabecera--con-enlace { justify-content: space-between; }
 .cabecera--con-enlace .cabecera__titular { flex: 0 1 auto; }
 
@@ -183,7 +185,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 
 /* ---------- Cabecera de página interior ---------- */
 .cabecera-pagina { background: var(--primary); color: var(--border); padding: 4.5rem 0 var(--section-spacing); }
-.cabecera-pagina__fila { display: flex; flex-wrap: wrap; gap: 2rem var(--espacio-5); align-items: flex-end; }
+/* El título queda centrado verticalmente respecto al texto de la derecha */
+.cabecera-pagina__fila { display: flex; flex-wrap: wrap; gap: 2rem var(--espacio-5); align-items: center; }
 .cabecera-pagina__titular { flex: 999 1 26rem; min-width: 0; }
 .cabecera-pagina h1 { margin: 0; font-size: clamp(2.4rem, 5.4vw, 4.25rem); line-height: 1.04; letter-spacing: -0.02em; color: var(--text-light); }
 .cabecera-pagina__texto { flex: 1 1 28rem; min-width: 0; font-size: 1.125rem; line-height: 1.6; }
@@ -284,6 +287,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .contacto__datos { flex: 1 1 18rem; min-width: 0; }
 .contacto__datos h2, .formulario h2 { font-size: 1.5rem; margin-bottom: var(--espacio-3); }
 .contacto__datos dd { font-size: 1.125rem; }
+.contacto__nombre { display: block; font-weight: 600; }
 .formulario { flex: 1.4 1 24rem; min-width: 0; display: flex; flex-direction: column; gap: var(--espacio-2); }
 .formulario > * { margin: 0; }
 .formulario__campo { display: flex; flex-direction: column; gap: 0.35rem; }

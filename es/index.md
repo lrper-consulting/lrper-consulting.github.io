@@ -17,7 +17,7 @@ portada_chips:
 
 # Títulos de las secciones de la página.
 secciones:
-  servicios_titulo: "Cuatro líneas de servicio para las etapas donde se decide el proyecto"
+  servicios_titulo: "Cuatro líneas de servicio en etapas clave del proyecto"
   servicios_texto: "Acompañamos a empresas de energía e industria en las primeras etapas, cuando las decisiones cuestan poco y pesan mucho."
   tecnologias_titulo: "Las tecnologías de la transición energética que estudiamos"
   enfoque_titulo: "Tres compromisos en cada estudio"

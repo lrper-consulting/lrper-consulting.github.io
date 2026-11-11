@@ -15,7 +15,10 @@ layout: default
       <dl>
         {%- if c.correo != "" %}
         <dt>{{ t.correo }}</dt>
-        <dd><a href="mailto:{{ c.correo }}">{{ c.correo }}</a></dd>
+        <dd>
+          {%- if c.correo_nombre and c.correo_nombre != "" %}<span class="contacto__nombre">{{ c.correo_nombre }}</span>{% endif %}
+          <a href="{{ correo_href }}">{{ c.correo }}</a>
+        </dd>
         {%- endif %}
         {%- if c.linkedin != "" %}
         <dt>{{ t.linkedin }}</dt>

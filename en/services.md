@@ -16,4 +16,6 @@ secciones:
   servicios_titulo: "Four service lines and their deliverables"
 ---
 
-We support energy and industrial companies in the earliest stages of their projects, when decisions cost little and matter most. We deliver the studies that show whether a project is technically feasible, what it costs and what impact it has, before the investment is committed.
+We support energy and industrial companies in the earliest stages of their projects, when decisions cost little and matter most.
+
+We deliver the studies that show whether a project is technically feasible, what it costs and what impact it has, before the investment is committed.

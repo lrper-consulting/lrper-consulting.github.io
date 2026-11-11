@@ -87,8 +87,18 @@ efectos:
 # formulario_url: dirección del servicio que recibe el formulario de contacto
 #                 (por ejemplo, un formulario de Formspree). Vacío = el
 #                 formulario no se muestra.
+# correo: dirección que se muestra en el sitio. correo_nombre: su titular.
+# correo_copia: direcciones que reciben copia. No se muestran en la página:
+#               se agregan solas al campo "CC" cuando el visitante hace clic
+#               en el correo. Para no enviar copias, dejar la lista vacía: []
 contacto:
-  correo: ""
+  correo: "diego.arauz@lrper.com"
+  correo_nombre: "Diego Arauz"
+  correo_copia:
+    - "kieran.conradie@lrper.com"
+    - "ignacio.tabilo@lrper.com"
+    - "jm.paredes@lrper.com"
+    - "maurice.moreau@lrper.com"
   linkedin: ""
   formulario_url: ""
   ciudad:

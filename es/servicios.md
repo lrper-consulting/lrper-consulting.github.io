@@ -16,4 +16,6 @@ secciones:
   servicios_titulo: "Cuatro líneas de servicio y sus entregables"
 ---
 
-Acompañamos a empresas de energía e industria en las primeras etapas de sus proyectos, cuando las decisiones cuestan poco y pesan mucho. Entregamos los estudios que permiten saber si un proyecto es técnicamente viable, cuánto cuesta y qué impacto tiene, antes de comprometer la inversión.
+Acompañamos a empresas de energía e industria en las primeras etapas de sus proyectos, cuando las decisiones cuestan poco y pesan mucho.
+
+Entregamos los estudios que permiten saber si un proyecto es técnicamente viable, cuánto cuesta y qué impacto tiene, antes de comprometer la inversión.

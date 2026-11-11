@@ -2,6 +2,17 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). El sitio usa [Semantic Versioning](https://semver.org/lang/es/), según las reglas de `CONTRIBUTING.md`.
 
+## [0.9.0] - 2026-11-11
+
+### Agregado
+
+- Correo de contacto en la página Contacto y en el pie de página. El enlace agrega en copia (CC) a las direcciones de `correo_copia` de `_data/marca.yml`, sin mostrarlas.
+
+### Cambiado
+
+- Antetítulos de sección más grandes y texto lateral de las cabeceras alineado a la derecha.
+- Título del bloque de servicios del inicio.
+
 ## [0.8.0] - 2026-11-11
 
 ### Cambiado

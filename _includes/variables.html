@@ -1,7 +1,14 @@
 {%- comment -%}
   Variables comunes a todas las plantillas:
-  lang = idioma de la página; t = textos de interfaz en ese idioma; m = marca.
+  lang = idioma de la página; t = textos de interfaz en ese idioma; m = marca;
+  correo_href = enlace "mailto:" del correo de contacto.
 {%- endcomment -%}
 {%- assign lang = page.lang | default: site.idioma_por_defecto -%}
 {%- assign t = site.data.i18n[lang] -%}
 {%- assign m = site.data.marca -%}
+{%- comment -%} Enlace del correo de contacto, con las copias (CC) incluidas {%- endcomment -%}
+{%- assign correo_href = "mailto:" | append: m.contacto.correo -%}
+{%- if m.contacto.correo_copia and m.contacto.correo_copia.size > 0 -%}
+  {%- assign correo_copias = m.contacto.correo_copia | join: "," -%}
+  {%- assign correo_href = correo_href | append: "?cc=" | append: correo_copias -%}
+{%- endif -%}

@@ -18,7 +18,7 @@
     <ul class="pie__columna">
       <li>{{ m.contacto.ciudad[lang] }}</li>
       {%- if m.contacto.correo != "" %}
-      <li><a href="mailto:{{ m.contacto.correo }}">{{ m.contacto.correo }}</a></li>
+      <li><a href="{{ correo_href }}">{{ m.contacto.correo }}</a></li>
       {%- endif %}
       {%- if m.contacto.linkedin != "" %}
       <li><a href="{{ m.contacto.linkedin }}" rel="noopener">{{ t.linkedin }}</a></li>

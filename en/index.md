@@ -17,7 +17,7 @@ portada_chips:
 
 # Section headings of the page.
 secciones:
-  servicios_titulo: "Four service lines for the stages where the project is decided"
+  servicios_titulo: "Four service lines at key project stages"
   servicios_texto: "We support energy and industrial companies in the earliest stages, when decisions cost little and matter most."
   tecnologias_titulo: "The energy transition technologies we study"
   enfoque_titulo: "Three commitments in every study"
