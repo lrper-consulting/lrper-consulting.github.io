@@ -1,8 +1,9 @@
 /*
   Mazo de cartas del equipo (página Nosotros).
 
-  Las cartas se abren en abanico. Al pasar el cursor, enfocar con el teclado
-  o tocar una carta, esta sube al frente y su perfil se muestra en el panel.
+  Las cartas se abren en abanico. Al hacer clic en una carta (o pulsar Enter
+  o Espacio con el teclado), esta sube al frente y su perfil se muestra en el
+  panel, que tiene alto fijo y desplazamiento interno.
   Funciona con cualquier número de integrantes.
 
   Sin JavaScript este archivo no se ejecuta y la página muestra todos los
@@ -36,13 +37,15 @@
       });
       perfiles.forEach(function (perfil, i) {
         perfil.hidden = i !== activa;
+        // Cada perfil se muestra desde el inicio de su texto.
+        var cuerpo = perfil.querySelector(".perfil__cuerpo");
+        if (cuerpo) { cuerpo.scrollTop = 0; }
       });
     }
 
+    // La carta se elige con clic (o con Enter / Espacio desde el teclado).
     cartas.forEach(function (carta, i) {
       carta.addEventListener("click", function () { elegir(i); });
-      carta.addEventListener("mouseenter", function () { elegir(i); });
-      carta.addEventListener("focus", function () { elegir(i); });
     });
 
     mazo.classList.add("mazo--activo");

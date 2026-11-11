@@ -6,11 +6,11 @@ permalink: /en/
 title: "Home"
 
 # Cover. The company name comes from _config.yml ("nombre" field).
-portada_etiqueta: "Engineering consultancy · Energy and industry"
-portada_texto: "Early-stage engineering for well-founded decisions"
-# Cover image: file in assets/img/ (2100 x 900 px). Empty = placeholder box.
-portada_imagen: ""
-portada_imagen_alt: "Combined-cycle power plant with a battery system"
+portada_texto: "Early-stage engineering consultancy focused on energy and industry. Decide on solid ground."
+# Background image: file in assets/img/ (2:1 ratio, 1920 x 960 px). The site
+# lays a veil of the primary colour over it. Empty = plain colour background.
+portada_imagen: "portada-parque-solar.jpg"
+portada_imagen_alt: "Aerial view of a solar photovoltaic park"
 portada_chips:
   - "FEL 1 · Conceptual engineering"
   - "FEL 2 · Basic engineering"

@@ -5,35 +5,39 @@ layout: default
 {%- comment -%} "sec" y no "s": los fragmentos incluidos reutilizan nombres cortos de variable {%- endcomment -%}
 {%- assign sec = page.secciones -%}
 
-{%- comment -%} 1. Portada: nombre de la empresa, lema e imagen de cubierta {%- endcomment -%}
+{%- comment -%}
+  1. Portada. La imagen va de fondo, cubierta por un velo del color primario
+  para que el texto contraste. A la izquierda, el nombre de la empresa flota
+  sobre la imagen; a la derecha, el texto y los botones van en una caja opaca.
+{%- endcomment -%}
 <section class="portada">
-  <div class="contenedor">
-    <div class="portada__fila">
-      <div class="portada__titular">
-        <p class="antetitulo antetitulo--claro">{{ page.portada_etiqueta }}</p>
-        <h1 class="portada__nombre">{{ site.nombre.completo[0] }}<br><span>{{ site.nombre.completo[1] }}</span></h1>
-      </div>
-      <div class="portada__lateral">
-        <p class="portada__texto">{{ page.portada_texto }}</p>
-        <div class="botones">
-          <a class="boton boton--acento" href="{{ t.servicios_url | relative_url }}">{{ t.ver_servicios }}</a>
-          <a class="boton boton--contorno" href="{{ t.proyectos_url | relative_url }}">{{ t.ver_proyectos }}</a>
-        </div>
-      </div>
+  <div class="portada__fondo" aria-hidden="true">
+    {%- if page.portada_imagen and page.portada_imagen != "" %}
+    <img src="{{ '/assets/img/' | append: page.portada_imagen | relative_url }}" alt="">
+    {%- endif %}
+    <div class="portada__velo"></div>
+  </div>
+  <div class="contenedor portada__fila">
+    <div class="portada__titular">
+      <h1 class="portada__nombre">{{ site.nombre.completo[0] }} <span>{{ site.nombre.completo[1] }}</span></h1>
     </div>
-    <div class="portada__imagen">
-      {% include imagen.html archivo=page.portada_imagen alt=page.portada_imagen_alt proporcion="21-9" oscuro="si" etiqueta=page.portada_imagen_alt %}
+    <div class="portada__caja">
+      <p class="portada__texto">{{ page.portada_texto }}</p>
       <ul class="portada__chips">
         {%- for chip in page.portada_chips %}
         <li>{{ chip }}</li>
         {%- endfor %}
       </ul>
+      <div class="botones">
+        <a class="boton boton--acento" href="{{ t.servicios_url | relative_url }}">{{ t.ver_servicios }}</a>
+        <a class="boton boton--borde" href="{{ t.proyectos_url | relative_url }}">{{ t.ver_proyectos }}</a>
+      </div>
     </div>
   </div>
 </section>
 
 {%- comment -%} 2. Qué hacemos {%- endcomment -%}
-<section class="seccion seccion--tras-portada">
+<section class="seccion">
   <div class="contenedor">
     {% include cabecera-seccion.html antetitulo=t.que_hacemos titulo=sec.servicios_titulo texto=sec.servicios_texto %}
     {% include tarjetas-servicios.html %}

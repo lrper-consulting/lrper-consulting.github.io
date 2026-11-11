@@ -6,11 +6,11 @@ permalink: /es/
 title: "Inicio"
 
 # Portada. El nombre de la empresa viene de _config.yml (campo "nombre").
-portada_etiqueta: "Consultoría de ingeniería · Energía e industria"
-portada_texto: "Ingeniería temprana para decidir con fundamento"
-# Imagen de cubierta: archivo en assets/img/ (2100 x 900 px). Vacío = recuadro provisional.
-portada_imagen: ""
-portada_imagen_alt: "Central de ciclo combinado con sistema de baterías"
+portada_texto: "Consultoría de ingeniería temprana enfocada en energía e industria. Decida con fundamento."
+# Imagen de fondo: archivo en assets/img/ (proporción 2:1, 1920 x 960 px). El sitio le
+# aplica encima un velo del color primario. Vacío = fondo de color liso.
+portada_imagen: "portada-parque-solar.jpg"
+portada_imagen_alt: "Vista aérea de un parque solar fotovoltaico"
 portada_chips:
   - "FEL 1 · Ingeniería conceptual"
   - "FEL 2 · Ingeniería básica"

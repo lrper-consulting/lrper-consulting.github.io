@@ -2,6 +2,17 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). El sitio usa [Semantic Versioning](https://semver.org/lang/es/), según las reglas de `CONTRIBUTING.md`.
 
+## [0.8.0] - 2026-11-11
+
+### Cambiado
+
+- Portada: la imagen pasa al fondo con un velo del color primario; el nombre de la empresa flota a la izquierda en una sola línea, con "Engineering Resources" en mayúsculas y menor tamaño; el texto y los botones van en una caja opaca a la derecha.
+- Mazo del equipo: el panel del perfil tiene alto fijo, con desplazamiento interno para el perfil y las especialidades, y la carta se elige con clic.
+
+### Agregado
+
+- Imagen de portada: vista aérea de un parque solar (`assets/img/portada-parque-solar.jpg`, 1920 × 960 px).
+
 ## [0.7.0] - 2026-11-11
 
 ### Agregado

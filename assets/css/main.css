@@ -13,8 +13,6 @@
   --espacio-3: 1.5rem;
   --espacio-4: 2.5rem;
   --espacio-5: 4rem;
-  /* Cuánto se monta la imagen de portada sobre la sección siguiente */
-  --solape-portada: clamp(3rem, 10vw, 8.75rem);
 }
 
 /* ---------- Base ---------- */
@@ -57,7 +55,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 /* Sobre fondos oscuros el foco usa su variante clara */
-.encabezado :focus-visible, .portada :focus-visible, .seccion--oscura :focus-visible, .pie :focus-visible { outline-color: var(--focus-inverse); }
+.encabezado :focus-visible, .seccion--oscura :focus-visible, .pie :focus-visible { outline-color: var(--focus-inverse); }
 
 /* ---------- Estructura ---------- */
 .contenedor { max-width: var(--container-width); margin: 0 auto; padding: 0 var(--espacio-3); }
@@ -67,8 +65,6 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .seccion--alterna { background: var(--background-alt); }
 .seccion--oscura { background: var(--primary-dark); color: var(--border); }
 .seccion--oscura h2 { color: var(--text-light); }
-/* La sección que sigue a la portada deja espacio para la imagen que se monta sobre ella */
-.seccion--tras-portada { padding-top: calc(var(--section-spacing) + var(--solape-portada)); }
 
 .saltar { position: absolute; left: -999rem; }
 .saltar:focus { left: var(--espacio-2); top: var(--espacio-2); background: var(--surface); padding: var(--espacio-1) var(--espacio-2); z-index: 10; }
@@ -109,6 +105,9 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 /* Botón de contorno, para fondos oscuros */
 .boton--contorno { background: transparent; border-color: var(--muted); color: var(--text-light); }
 .boton--contorno:hover { background: transparent; border-color: var(--text-light); color: var(--text-light); }
+/* Botón de borde, para fondos claros */
+.boton--borde { background: transparent; border-color: var(--primary); color: var(--heading); }
+.boton--borde:hover { background: var(--primary); color: var(--text-light); }
 .boton--pequeno { padding: 0.65rem 1.35rem; }
 
 .enlace-flecha { display: inline-block; font-weight: 600; text-decoration: none; padding: 0.6rem 0; }
@@ -117,18 +116,25 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .enlace-volver::before { content: "← "; }
 
 /* ---------- Portada ---------- */
-.portada { background: var(--primary); color: var(--text-light); padding-top: 4.5rem; }
-.portada__fila { display: flex; flex-wrap: wrap; gap: var(--espacio-4) var(--espacio-5); align-items: flex-end; }
-.portada__titular { flex: 999 1 35rem; min-width: 0; text-align: center; }
-.portada__nombre { margin: 0; font-size: clamp(2.1rem, 4.6vw, 3.75rem); line-height: 1.08; letter-spacing: -0.02em; color: var(--text-light); }
-/* Segunda línea del nombre: peso ligero y color de acento */
-.portada__nombre span { font-weight: 300; letter-spacing: 0; color: var(--accent); }
-.portada__lateral { flex: 1 1 21rem; min-width: 0; display: flex; flex-direction: column; gap: 1.75rem; }
-.portada__texto { margin: 0; font-size: 1.125rem; line-height: 1.6; color: var(--border); }
-.portada__imagen { position: relative; margin-top: var(--espacio-5); margin-bottom: calc(var(--solape-portada) * -1); }
-.portada__imagen .imagen { margin-bottom: 0; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); min-height: 16rem; }
-.portada__chips { position: absolute; left: var(--espacio-3); bottom: var(--espacio-3); display: flex; flex-wrap: wrap; gap: var(--espacio-1); list-style: none; margin: 0; padding: 0; }
-.portada__chips li { font-size: 0.75rem; padding: 0.4rem 0.75rem; border-radius: var(--radius-sm); background: var(--primary); color: var(--text-light); }
+.portada { position: relative; isolation: isolate; display: flex; align-items: center; min-height: clamp(26rem, 62vh, 38rem); padding: var(--espacio-5) 0; background: var(--primary); color: var(--text-light); border-bottom: 4px solid var(--accent); }
+/* Fondo: imagen y, encima, un velo del color primario que asegura el contraste */
+.portada__fondo { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+.portada__fondo img { width: 100%; height: 100%; max-width: none; object-fit: cover; }
+.portada__velo { position: absolute; inset: 0; background: var(--primary); opacity: 0.78; }
+.portada__fila { width: 100%; display: flex; flex-wrap: wrap; gap: var(--espacio-4) 3rem; align-items: center; }
+/* Nombre de la empresa: flota sobre la imagen. Su tamaño depende del ancho
+   de su columna, para que la primera línea nunca se parta. */
+.portada__titular { flex: 999 1 34rem; min-width: 0; container-type: inline-size; }
+.portada__nombre { display: inline-block; margin: 0; white-space: nowrap; text-align: center; font-size: clamp(1.2rem, 3.8vw, 3.25rem); font-size: clamp(1.2rem, 7cqi, 3.75rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--text-light); }
+/* Segunda línea: en mayúsculas, en negrita, centrada bajo la primera y siempre
+   más pequeña que ella. La sangría compensa el espaciado tras la última letra. */
+.portada__nombre span { display: block; margin-top: 0.5em; font-size: max(0.44em, 0.68rem); font-weight: 700; letter-spacing: 0.24em; text-indent: 0.24em; text-transform: uppercase; color: var(--accent); }
+/* Caja opaca de la derecha: texto, etapas y botones */
+.portada__caja { flex: 1 1 19rem; min-width: 0; max-width: 26rem; display: flex; flex-direction: column; gap: 1.25rem; padding: clamp(1.5rem, 3vw, 2.25rem); border-radius: var(--radius-lg); background: var(--surface); color: var(--body); box-shadow: var(--shadow-md); }
+.portada__caja > * { margin: 0; }
+.portada__texto { font-family: var(--font-heading); font-weight: 600; font-size: 1.25rem; line-height: 1.35; color: var(--heading); }
+.portada__chips { display: flex; flex-wrap: wrap; gap: var(--espacio-1); list-style: none; padding: 0; }
+.portada__chips li { font-size: 0.75rem; padding: 0.35rem 0.7rem; border-radius: var(--radius-sm); background: var(--surface-green); color: var(--heading); }
 
 /* ---------- Rejillas y tarjetas ---------- */
 .rejilla { display: grid; gap: var(--espacio-3); list-style: none; padding: 0; margin: 0; grid-template-columns: 1fr; }
@@ -208,7 +214,9 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .mazo__abanico { display: flex; width: max-content; margin: 0 auto; padding: 0 3.5rem; }
 
 .carta { position: relative; flex: 0 0 11rem; margin: 0 -3rem; padding: 0.75rem 0.75rem 1.125rem; display: flex; flex-direction: column; gap: 0.375rem; text-align: left; font: inherit; cursor: pointer; border-radius: var(--radius-lg); background: var(--surface); border: 2px solid var(--border); box-shadow: var(--shadow-md); transform: translateY(var(--caida, 0)) rotate(var(--giro, 0deg)); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
-.carta[aria-pressed="true"] { transform: translateY(-2.25rem) rotate(0deg) scale(1.04); border-color: var(--accent); }
+/* Al pasar el cursor la carta se asoma; solo el clic la elige */
+.carta:hover { transform: translateY(calc(var(--caida, 0px) - 0.75rem)) rotate(var(--giro, 0deg)); border-color: var(--muted); }
+.carta[aria-pressed="true"] { cursor: default; transform: translateY(-2.25rem) rotate(0deg) scale(1.04); border-color: var(--accent); }
 .carta__foto { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 0.5rem; }
 .carta__foto--provisional { background: var(--border); color: var(--body); font-family: var(--font-technical); font-size: 0.7rem; }
 .carta__nombre { font-family: var(--font-heading); font-weight: 600; font-size: 1.05rem; line-height: 1.2; color: var(--heading); }
@@ -216,12 +224,17 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 
 .perfil { display: flex; flex-direction: column; gap: var(--espacio-2); padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius-lg); background: var(--primary); border: 1px solid var(--body); color: var(--text-light); }
 .perfil[hidden] { display: none; }
-.perfil > * { margin: 0; }
+.perfil > *, .perfil__cuerpo > * { margin: 0; }
 .perfil h3 { font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.125rem); line-height: 1.1; color: var(--text-light); }
 .perfil h4 { color: var(--border); margin-top: var(--espacio-1); }
 .perfil__titulo { font-size: 0.875rem; color: var(--border); }
-.perfil__enlace { align-self: flex-start; margin-top: var(--espacio-1); padding: 0.6rem 0; color: var(--text-light); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--accent); }
+.perfil__cuerpo { display: flex; flex-direction: column; gap: var(--espacio-2); }
+.perfil__enlace { align-self: flex-start; padding: 0.6rem 0; color: var(--text-light); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--accent); }
 .perfil__enlace:hover { color: var(--accent); }
+/* Con el mazo activo, el panel tiene alto fijo: la cabecera (enfoque, nombre
+   y título) queda quieta; el perfil y las especialidades se desplazan dentro. */
+.mazo--activo .perfil { height: 31rem; }
+.mazo--activo .perfil__cuerpo { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 0.75rem; scrollbar-width: thin; scrollbar-color: var(--muted) transparent; border-top: 1px solid var(--body); padding-top: var(--espacio-2); }
 .etiquetas--oscuras li { background: var(--primary-dark); border: 1px solid var(--body); color: var(--text-light); }
 
 /* ---------- Etapas FEL ---------- */
