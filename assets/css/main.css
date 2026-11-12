@@ -342,6 +342,10 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .contacto__datos h2, .formulario h2 { font-size: 1.5rem; margin-bottom: var(--espacio-3); }
 .contacto__datos dd { font-size: 1.125rem; }
 .contacto__nombre { display: block; font-weight: 600; }
+/* Datos en fila (correo, idiomas, modalidad), entre dos líneas finas */
+.contacto__lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--espacio-3) var(--espacio-4); padding: var(--espacio-3) 0; border-top: 2px solid var(--primary); border-bottom: 1px solid var(--border); }
+.contacto__lista dt { margin-top: 0; }
+.contacto__lista dd { margin-top: 0.35rem; }
 .formulario { flex: 1.4 1 24rem; min-width: 0; display: flex; flex-direction: column; gap: var(--espacio-2); }
 .formulario > * { margin: 0; }
 .formulario__campo { display: flex; flex-direction: column; gap: 0.35rem; }

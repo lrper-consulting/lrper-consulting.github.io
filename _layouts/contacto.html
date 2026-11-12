@@ -12,20 +12,29 @@ layout: default
     {%- comment -%} Datos directos, desde _data/marca.yml. Los campos vacíos no se muestran. {%- endcomment -%}
     <div class="contacto__datos">
       <h2>{{ t.datos_directos }}</h2>
-      <dl>
+      {%- comment -%} Correo y LinkedIn desde _data/marca.yml; idiomas y modalidad desde el campo "atencion" de la página {%- endcomment -%}
+      <dl class="contacto__lista">
         {%- if c.correo != "" %}
-        <dt>{{ t.correo }}</dt>
-        <dd>
-          {%- if c.correo_nombre and c.correo_nombre != "" %}<span class="contacto__nombre">{{ c.correo_nombre }}</span>{% endif %}
-          <a href="{{ correo_href }}">{{ c.correo }}</a>
-        </dd>
+        <div>
+          <dt>{{ t.correo }}</dt>
+          <dd>
+            {%- if c.correo_nombre and c.correo_nombre != "" %}<span class="contacto__nombre">{{ c.correo_nombre }}</span>{% endif %}
+            <a href="{{ correo_href }}">{{ c.correo }}</a>
+          </dd>
+        </div>
         {%- endif %}
         {%- if c.linkedin != "" %}
-        <dt>{{ t.linkedin }}</dt>
-        <dd><a href="{{ c.linkedin }}" rel="noopener">{{ site.title }}</a></dd>
+        <div>
+          <dt>{{ t.linkedin }}</dt>
+          <dd><a href="{{ c.linkedin }}" rel="noopener">{{ site.title }}</a></dd>
+        </div>
         {%- endif %}
-        <dt>{{ t.ciudad }}</dt>
-        <dd>{{ c.ciudad[lang] }}</dd>
+        {%- for dato in page.atencion %}
+        <div>
+          <dt>{{ dato.etiqueta }}</dt>
+          <dd>{{ dato.valor }}</dd>
+        </div>
+        {%- endfor %}
       </dl>
       {%- if c.correo == "" and c.linkedin == "" %}
       <p class="nota">{{ t.contacto_pendiente }}</p>
@@ -58,3 +67,25 @@ layout: default
 
   </div>
 </section>
+
+{%- comment -%}
+  Qué pasa después de escribirnos: pasos unidos por una línea que se dibuja
+  al entrar en pantalla (mismo componente que los compromisos del inicio).
+  Textos en el campo "pasos" de la página.
+{%- endcomment -%}
+{%- if page.pasos and page.pasos.size > 0 %}
+<section class="seccion seccion--alterna">
+  <div class="contenedor">
+    {% include cabecera-seccion.html antetitulo=page.pasos_antetitulo titulo=page.pasos_titulo %}
+    <ol class="rejilla rejilla--3 compromisos" data-revela-hijos>
+      {%- for paso in page.pasos %}
+      <li>
+        <span class="compromisos__letra">{{ forloop.index | prepend: "0" }}</span>
+        <h3>{{ paso.nombre }}</h3>
+        <p>{{ paso.texto }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+{%- endif %}

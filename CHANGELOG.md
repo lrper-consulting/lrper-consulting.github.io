@@ -2,6 +2,12 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). El sitio usa [Semantic Versioning](https://semver.org/lang/es/), según las reglas de `CONTRIBUTING.md`.
 
+## [0.13.0] - 2026-11-12
+
+### Agregado
+
+- Página de Contacto: idiomas y modalidad de atención junto al correo, y sección "Qué pasa después de escribirnos" con tres pasos unidos por una línea. Los plazos quedan como "X" hasta que el equipo los defina (campos `atencion` y `pasos` de `es/contacto.md` y `en/contact.md`).
+
 ## [0.12.1] - 2026-11-12
 
 ### Cambiado
@@ -18,6 +24,7 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). E
 
 - Geometría técnica animada de la portada (lienzo rotatorio bajo el nombre), para aligerar la carga.
 - Entrada escalonada de las tarjetas de etapas FEL en Servicios; se mantiene solo la línea de tiempo con sus puntos.
+- Ciudad y país en la página de Contacto (se mantienen en el pie de página).
 
 ## [0.12.0] - 2026-11-12
 
