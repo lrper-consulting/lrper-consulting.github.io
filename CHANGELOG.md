@@ -2,6 +2,17 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). El sitio usa [Semantic Versioning](https://semver.org/lang/es/), según las reglas de `CONTRIBUTING.md`.
 
+## [0.10.0] - 2026-11-11
+
+### Agregado
+
+- Ícono de la marca: versión clara junto a la sigla en el encabezado y el pie, y versión a color sobre el nombre en la portada.
+- Ícono de la pestaña del navegador (favicon) en SVG, PNG e ICO.
+
+### Cambiado
+
+- Títulos de las cabeceras de página centrados respecto a su texto; introducción de Servicios en dos párrafos.
+
 ## [0.9.0] - 2026-11-11
 
 ### Agregado

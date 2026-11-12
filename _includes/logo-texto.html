@@ -1,8 +1,12 @@
 {%- comment -%}
-  Logo de texto: las dos partes de la sigla separadas por una barra de acento.
-  Se usa mientras no exista un archivo de logo en _data/marca.yml.
+  Logo de texto: ícono de la marca (versión clara) y las dos partes de la
+  sigla separadas por una barra de acento.
+  Se usa mientras no exista un archivo de logo completo en _data/marca.yml.
 {%- endcomment -%}
 <span class="logo-texto" aria-label="{{ site.title }}">
+  {%- if m.icono_claro and m.icono_claro != "" %}
+  <img class="logo-texto__icono" src="{{ m.icono_claro | relative_url }}" alt="" width="36" height="35">
+  {%- endif %}
   <span aria-hidden="true">{{ site.nombre.sigla[0] }}</span>
   <span class="logo-texto__barra" aria-hidden="true"></span>
   <span aria-hidden="true">{{ site.nombre.sigla[1] }}</span>

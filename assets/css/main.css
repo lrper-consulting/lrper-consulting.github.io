@@ -89,6 +89,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .marca { text-decoration: none; margin-right: auto; padding: 0.5rem 0; }
 .marca img { height: 2.75rem; width: auto; }
 .logo-texto { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-heading); font-weight: 700; font-size: 1.5rem; letter-spacing: 0.02em; line-height: 1; color: var(--text-light); }
+.logo-texto__icono { height: 2.2rem; width: auto; margin-right: 0.25rem; }
 .logo-texto__barra { display: block; width: 3px; height: 1.5rem; background: var(--accent); }
 .menu { display: flex; flex-wrap: wrap; gap: var(--espacio-1) 2rem; list-style: none; margin: 0; padding: 0; }
 .menu a { display: inline-block; color: var(--text-light); text-decoration: none; font-weight: 500; padding: 0.7rem 0; border-bottom: 2px solid transparent; transition: border-color var(--transition); }
@@ -124,6 +125,10 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .portada__fondo img { width: 100%; height: 100%; max-width: none; object-fit: cover; }
 .portada__velo { position: absolute; inset: 0; background: var(--primary); opacity: 0.78; }
 .portada__fila { width: 100%; display: flex; flex-wrap: wrap; gap: var(--espacio-4) 3rem; align-items: center; }
+/* Ícono y nombre forman un bloque: el ícono queda centrado sobre el nombre */
+.portada__marca { display: inline-flex; flex-direction: column; align-items: center; gap: 1.25rem; max-width: 100%; }
+.portada__icono { display: flex; align-items: center; justify-content: center; padding: 0.7rem; border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-md); }
+.portada__icono img { width: clamp(3rem, 8cqi, 4.5rem); height: auto; }
 /* Nombre de la empresa: flota sobre la imagen. Su tamaño depende del ancho
    de su columna, para que la primera línea nunca se parta. */
 .portada__titular { flex: 999 1 34rem; min-width: 0; container-type: inline-size; }

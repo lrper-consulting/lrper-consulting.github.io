@@ -48,6 +48,7 @@ El sitio separa tres capas:
 ├── docs/                Documentación interna del sitio
 ├── index.html           Redirige la dirección raíz al idioma por defecto
 ├── CNAME                Dominio propio del sitio (no borrar)
+├── favicon.ico          Ícono de la pestaña para navegadores antiguos
 └── 404.html             Página de error
 ```
 

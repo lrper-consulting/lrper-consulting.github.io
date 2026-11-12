@@ -19,7 +19,13 @@ layout: default
   </div>
   <div class="contenedor portada__fila">
     <div class="portada__titular">
-      <h1 class="portada__nombre">{{ site.nombre.completo[0] }} <span>{{ site.nombre.completo[1] }}</span></h1>
+      <div class="portada__marca">
+        {%- comment -%} Ícono a color sobre una placa clara, para que se distinga del fondo oscuro {%- endcomment -%}
+        {%- if m.icono and m.icono != "" %}
+        <span class="portada__icono"><img src="{{ m.icono | relative_url }}" alt="" width="72" height="70"></span>
+        {%- endif %}
+        <h1 class="portada__nombre">{{ site.nombre.completo[0] }} <span>{{ site.nombre.completo[1] }}</span></h1>
+      </div>
     </div>
     <div class="portada__caja">
       <p class="portada__texto">{{ page.portada_texto }}</p>

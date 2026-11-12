@@ -11,6 +11,13 @@
 logo: ""
 logo_extendido: ""
 
+# Ícono de la marca (símbolo sin texto), en dos versiones:
+# icono: a color, para fondos claros. Se usa en la portada y en la pestaña del navegador.
+# icono_claro: en blanco, para fondos oscuros. Acompaña a la sigla en el encabezado y el pie.
+# Vacío ("") = no se muestra.
+icono: "/assets/img/logo-icono.svg"
+icono_claro: "/assets/img/logo-icono-blanco.svg"
+
 lema:
   es: "Ingeniería temprana para proyectos de energía"
   en: "Early-stage engineering for energy projects"
