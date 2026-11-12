@@ -16,6 +16,8 @@ layout: default
     <img src="{{ '/assets/img/' | append: page.portada_imagen | relative_url }}" alt="">
     {%- endif %}
     <div class="portada__velo"></div>
+    {%- comment -%} Geometría técnica animada (assets/js/animaciones.js) {%- endcomment -%}
+    <canvas class="portada__geometria" data-geometria></canvas>
   </div>
   <div class="contenedor portada__fila">
     <div class="portada__titular">
@@ -53,7 +55,7 @@ layout: default
 {%- comment -%} 3. Tecnologías {%- endcomment -%}
 <section class="seccion seccion--alterna">
   <div class="contenedor">
-    {% include cabecera-seccion.html antetitulo=t.tecnologias titulo=sec.tecnologias_titulo %}
+    {% include cabecera-seccion.html antetitulo=t.tecnologias titulo=sec.tecnologias_titulo animar="no" %}
     {% include tarjetas-tecnologias.html %}
   </div>
 </section>
@@ -85,7 +87,7 @@ layout: default
 <section class="seccion">
   <div class="contenedor">
     {% include cabecera-seccion.html antetitulo=t.nuestro_enfoque titulo=sec.enfoque_titulo %}
-    <ul class="rejilla rejilla--3 compromisos">
+    <ul class="rejilla rejilla--3 compromisos" data-revela-hijos>
       {%- for item in site.data.nosotros.enfoque %}
       {%- assign e = item[lang] %}
       <li>
@@ -101,7 +103,7 @@ layout: default
 {%- comment -%} 6. Equipo {%- endcomment -%}
 <section class="seccion seccion--alterna">
   <div class="contenedor">
-    <div class="cabecera cabecera--con-enlace">
+    <div class="cabecera cabecera--con-enlace" data-revela>
       <div class="cabecera__titular">
         <p class="antetitulo">{{ t.equipo }}</p>
         <h2>{{ t.equipo_titulo }}</h2>

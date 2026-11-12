@@ -2,7 +2,7 @@
   Servicios en filas, con sus entregables (página Servicios).
   Generadas desde _data/servicios.yml.
 {%- endcomment -%}
-<div class="filas">
+<div class="filas" data-revela-hijos>
   {%- for servicio in site.data.servicios %}
   {%- assign srv = servicio[lang] %}
   <article class="fila-servicio" id="{{ servicio.id }}">

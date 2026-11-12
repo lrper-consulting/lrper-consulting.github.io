@@ -114,7 +114,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .boton--pequeno { padding: 0.65rem 1.35rem; }
 
 .enlace-flecha { display: inline-block; font-weight: 600; text-decoration: none; padding: 0.6rem 0; }
-.enlace-flecha::after { content: " →"; }
+.enlace-flecha::after, .boton--flecha::after { content: "→"; display: inline-block; margin-left: 0.4em; transition: transform var(--transition); }
+.enlace-flecha:hover::after, .boton--flecha:hover::after { transform: translateX(4px); }
 .enlace-volver { text-decoration: none; font-weight: 500; }
 .enlace-volver::before { content: "← "; }
 
@@ -124,6 +125,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .portada__fondo { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
 .portada__fondo img { width: 100%; height: 100%; max-width: none; object-fit: cover; }
 .portada__velo { position: absolute; inset: 0; background: var(--primary); opacity: 0.78; }
+/* Geometría técnica: líneas finas sobre el velo, detrás del texto */
+.portada__geometria { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; }
 .portada__fila { width: 100%; display: flex; flex-wrap: wrap; gap: var(--espacio-4) 3rem; align-items: center; }
 /* Ícono y nombre forman un bloque: el ícono queda centrado sobre el nombre */
 .portada__marca { display: inline-flex; flex-direction: column; align-items: center; gap: 1rem; max-width: 100%; }
@@ -164,24 +167,51 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .entradilla { font-size: 1.2rem; color: var(--muted); max-width: 60ch; }
 
 /* Tarjeta de servicio */
-.servicio { display: flex; flex-direction: column; gap: var(--espacio-2); }
+.servicio { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: var(--espacio-2); transition: transform var(--transition), box-shadow var(--transition); }
+/* Al pasar el cursor: la tarjeta sube 4 px y aparece una línea de acento */
+.servicio::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+.servicio:hover, .servicio:focus-within { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.servicio:hover::after, .servicio:focus-within::after { transform: scaleX(1); }
+.servicio:hover .servicio__numero, .servicio:focus-within .servicio__numero { color: var(--secondary); }
 .servicio > * { margin: 0; }
 .servicio__cabeza { display: flex; justify-content: space-between; align-items: center; }
 .servicio__icono { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: var(--radius-md); background: var(--surface-green); color: var(--secondary); }
-.servicio__numero { font-size: 0.82rem; color: var(--muted); }
+.servicio__numero { font-size: 0.82rem; color: var(--muted); transition: color var(--transition); }
 .servicio p { font-size: 0.95rem; }
 .servicio__enlace { margin-top: auto; }
 
-/* Compromisos ("Nuestro enfoque") */
-.compromisos { gap: var(--espacio-4); }
+/* Compromisos ("Nuestro enfoque") y valores */
+.compromisos { position: relative; gap: var(--espacio-4); }
 .compromisos li { border-top: 2px solid var(--primary); padding-top: 1.25rem; }
-.compromisos__letra { display: block; font-size: 0.82rem; color: var(--secondary); margin-bottom: 0.6rem; }
+.compromisos__letra { display: block; font-size: 0.82rem; color: var(--secondary); margin-bottom: 0.6rem; transition: color 0.5s ease 0.3s; }
 .compromisos p { margin: 0; }
+/* Antes de aparecer, la letra o el número está apagado */
+.js .compromisos li[data-revela]:not(.es-visible) .compromisos__letra { color: var(--border); }
+/* Cuando los elementos están en una sola fila, una línea continua los une y
+   se dibuja de izquierda a derecha al entrar en pantalla */
+.compromisos::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--primary); transform-origin: left; display: none; }
+.js .compromisos[data-revela-hijos]::before { transform: scaleX(0); transition: transform 0.9s ease; }
+.js .compromisos[data-revela-hijos].es-visible::before { transform: scaleX(1); }
+@media (min-width: 40rem) {
+  .rejilla--3.compromisos::before { display: block; }
+  .rejilla--3.compromisos li { border-top-color: transparent; }
+}
+@media (min-width: 62rem) {
+  .rejilla--4.compromisos::before { display: block; }
+  .rejilla--4.compromisos li { border-top-color: transparent; }
+}
 
 /* ---------- Equipo ---------- */
-.retrato .imagen { border-radius: var(--radius-lg); margin-bottom: 1rem; }
+.retrato__enlace { display: block; color: inherit; text-decoration: none; }
+.retrato__foto { position: relative; overflow: hidden; border-radius: var(--radius-lg); margin-bottom: 1rem; }
+.retrato__foto .imagen { margin: 0; border-radius: 0; transition: transform 0.6s ease; }
+/* Al pasar el cursor: la foto crece levemente y aparece una línea de acento */
+.retrato__foto::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+.retrato__enlace:hover .imagen, .retrato__enlace:focus-visible .imagen { transform: scale(1.04); }
+.retrato__enlace:hover .retrato__foto::after, .retrato__enlace:focus-visible .retrato__foto::after { transform: scaleX(1); }
+.retrato__enlace:hover p, .retrato__enlace:focus-visible p { color: var(--body); }
 .retrato h3 { font-size: 1.125rem; margin-bottom: 0.25rem; }
-.retrato p { margin: 0; font-size: 0.875rem; color: var(--muted); }
+.retrato p { margin: 0; font-size: 0.875rem; color: var(--muted); transition: color var(--transition); }
 .persona__foto { width: 5rem; height: 5rem; border-radius: 50%; object-fit: cover; margin-bottom: var(--espacio-2); }
 .persona__foto--iniciales { display: flex; align-items: center; justify-content: center; background: var(--primary); color: var(--text-light); font-family: var(--font-heading); font-weight: 700; font-size: 1.4rem; }
 .persona h3 { margin-bottom: var(--espacio-1); }
@@ -241,7 +271,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .perfil__enlace:hover { color: var(--accent); }
 /* Con el mazo activo, el panel tiene alto fijo: la cabecera (enfoque, nombre
    y título) queda quieta; el perfil y las especialidades se desplazan dentro. */
-.mazo--activo .perfil { height: 31rem; }
+.mazo--activo .perfil { height: 31rem; animation: perfil-entra 0.45s ease both; }
+@keyframes perfil-entra { from { opacity: 0; transform: translateX(1.25rem); } to { opacity: 1; transform: none; } }
 .mazo--activo .perfil__cuerpo { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding-right: 0.75rem; scrollbar-width: thin; scrollbar-color: var(--muted) transparent; border-top: 1px solid var(--body); padding-top: var(--espacio-2); }
 .etiquetas--oscuras li { background: var(--primary-dark); border: 1px solid var(--body); color: var(--text-light); }
 
@@ -267,6 +298,23 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .etapa--fuera .etapa__sigla, .etapa--fuera h3 { color: var(--muted); }
 .etapa--fuera dd { color: var(--body); }
 .etapa--fuera .etapa__participacion { background: var(--background-alt); color: var(--body); }
+
+/* Línea de tiempo: con las tres etapas en fila, una línea las recorre y se
+   detiene donde termina nuestro alcance (FEL 2). Cada etapa tiene su punto. */
+@media (min-width: 40rem) {
+  .etapas { position: relative; padding-top: 2.75rem; }
+  .etapas::before, .etapas::after { content: ""; position: absolute; left: 0; top: 0.75rem; height: 2px; }
+  .etapas::before { right: 0; background: var(--border); }
+  .etapas::after { width: 100%; background: var(--accent); transform: scaleX(0.667); transform-origin: left; }
+  .js .etapas[data-revela-hijos]::after { transform: scaleX(0); transition: transform 1.3s ease; }
+  .js .etapas[data-revela-hijos].es-visible::after { transform: scaleX(0.667); }
+  .etapa { position: relative; }
+  .etapa::before { content: ""; position: absolute; left: 0; top: -2.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--muted); border: 3px solid var(--background); z-index: 1; transition: background-color 0.4s ease; }
+  .etapa--principal::before { background: var(--accent); }
+  .etapa--continuidad::before { background: var(--secondary); }
+}
+/* Las etapas se iluminan una tras otra */
+.js .etapas > [data-revela] { transition-delay: calc(var(--i, 0) * 320ms); }
 
 /* ---------- Servicios en filas ---------- */
 .filas { border-bottom: 1px solid var(--border); }
@@ -338,10 +386,17 @@ th, td { text-align: left; padding: 0.75rem var(--espacio-2); border-bottom: 1px
 th { font-family: var(--font-technical); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 2px solid var(--primary); }
 
 /* ---------- Llamado a contacto ---------- */
-.llamado { display: flex; flex-wrap: wrap; gap: 2rem var(--espacio-5); align-items: center; justify-content: space-between; padding: clamp(2rem, 6vw, 4.5rem); border-radius: var(--radius-lg); background: var(--surface-green); }
+/* Estado final: panel oscuro. Con JavaScript parte claro y se oscurece al
+   entrar en pantalla, mientras una línea de acento se dibuja bajo el título. */
+.llamado { display: flex; flex-wrap: wrap; gap: 2rem var(--espacio-5); align-items: center; justify-content: space-between; padding: clamp(2rem, 6vw, 4.5rem); border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--border); transition: background-color 0.8s ease, color 0.8s ease; }
 .llamado__texto { flex: 999 1 26rem; min-width: 0; }
-.llamado__texto h2 { margin: 0 0 0.75rem; }
+.llamado__texto h2 { margin: 0 0 0.75rem; color: var(--text-light); transition: color 0.8s ease; }
+.llamado__texto h2::after { content: ""; display: block; width: 4.5rem; height: 3px; margin-top: 1rem; background: var(--accent); transform-origin: left; transition: transform 0.7s ease 0.4s; }
 .llamado__texto p { margin: 0; font-size: 1.125rem; }
+.llamado :focus-visible { outline-color: var(--focus-inverse); }
+.js .llamado[data-al-entrar]:not(.es-visible) { background: var(--surface-green); color: var(--body); }
+.js .llamado[data-al-entrar]:not(.es-visible) h2 { color: var(--heading); }
+.js .llamado[data-al-entrar]:not(.es-visible) h2::after { transform: scaleX(0); }
 
 /* ---------- Pie de página: sección oscura ---------- */
 .pie { background: var(--primary-dark); color: var(--border); padding: var(--espacio-5) 0 1.75rem; font-size: 0.95rem; }
@@ -356,9 +411,26 @@ th { font-family: var(--font-technical); font-size: 0.75rem; font-weight: 500; t
 .pie__columna a { display: inline-block; }
 .pie__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--espacio-1) var(--espacio-3); margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--body); font-size: 0.75rem; font-weight: 400; }
 
+/* ---------- Animaciones de entrada ---------- */
+/* Revelado al desplazarse. Solo se prepara si hay JavaScript (clase "js" en
+   <html>); assets/js/animaciones.js agrega "es-visible" al entrar en pantalla.
+   --i es la posición del elemento dentro de su grupo y define su retraso. */
+.js [data-revela] { opacity: 0; transform: translateY(1.25rem); transition: opacity 0.6s ease, transform 0.6s ease; transition-delay: calc(var(--i, 0) * 90ms); }
+.js [data-revela].es-visible { opacity: 1; transform: none; }
+
+/* Entrada de la portada al cargar: primero el nombre, luego la caja y las etapas */
+@keyframes entra { from { opacity: 0; transform: translateY(1.25rem); } to { opacity: 1; transform: none; } }
+.portada__marca { animation: entra 0.8s ease 0.35s both; }
+.portada__caja { animation: entra 0.8s ease 0.6s both; }
+.portada__chips li { animation: entra 0.6s ease both; }
+.portada__chips li:nth-child(1) { animation-delay: 1.1s; }
+.portada__chips li:nth-child(2) { animation-delay: 1.25s; }
+.portada__chips li:nth-child(3) { animation-delay: 1.4s; }
+
 /* Sin animaciones para quien las desactiva en su sistema */
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .js [data-revela] { opacity: 1; transform: none; }
 }
 
 /* ---------- Pantallas medianas y grandes ---------- */

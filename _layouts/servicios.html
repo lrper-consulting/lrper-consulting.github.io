@@ -11,7 +11,7 @@ layout: default
 <section class="seccion">
   <div class="contenedor">
     {% include cabecera-seccion.html antetitulo=t.donde_participamos titulo=sec.etapas_titulo texto=sec.etapas_texto %}
-    <ol class="rejilla rejilla--3 etapas">
+    <ol class="rejilla rejilla--3 etapas" data-revela-hijos>
       {%- for etapa in site.data.etapas %}
       {%- assign e = etapa[lang] %}
       <li class="etapa etapa--{{ etapa.estilo }}">

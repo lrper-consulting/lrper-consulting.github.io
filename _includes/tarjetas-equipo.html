@@ -1,6 +1,6 @@
 {%- comment -%}
   Tarjetas del equipo, generadas desde _data/equipo.yml.
-  Sin parámetros: retrato, nombre y enfoque (Inicio).
+  Sin parámetros: retrato, nombre y enfoque, con enlace al perfil (Inicio).
   Con detalle="si": perfil completo y especialidades (página Nosotros).
   Sin foto, muestra un recuadro provisional (Inicio) o las iniciales (Nosotros).
 {%- endcomment -%}
@@ -32,13 +32,18 @@
   {%- endfor %}
 </ul>
 {%- else %}
-<ul class="rejilla rejilla--retratos">
+<ul class="rejilla rejilla--retratos" data-revela-hijos>
   {%- for persona in site.data.equipo %}
   {%- assign p = persona[lang] %}
   <li class="retrato">
-    {% include imagen.html archivo=persona.foto alt=persona.nombre proporcion="4-5" %}
-    <h3>{{ persona.nombre }}</h3>
-    <p>{{ p.enfoque }}</p>
+    {%- comment -%} El retrato enlaza al perfil completo: abre su carta en la página Nosotros {%- endcomment -%}
+    <a class="retrato__enlace" href="{{ t.nosotros_url | relative_url }}?integrante={{ persona.id }}#equipo">
+      <div class="retrato__foto">
+        {% include imagen.html archivo=persona.foto alt="" proporcion="4-5" %}
+      </div>
+      <h3>{{ persona.nombre }}</h3>
+      <p>{{ p.enfoque }}</p>
+    </a>
   </li>
   {%- endfor %}
 </ul>

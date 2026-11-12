@@ -49,6 +49,15 @@
     });
 
     mazo.classList.add("mazo--activo");
-    elegir(Math.floor(centro));
+
+    // Si se llega desde el inicio con ?integrante=<id>, se abre esa carta.
+    var inicial = Math.floor(centro);
+    var pedido = new URLSearchParams(window.location.search).get("integrante");
+    if (pedido) {
+      cartas.forEach(function (carta, i) {
+        if (carta.getAttribute("aria-controls") === "perfil-" + pedido) { inicial = i; }
+      });
+    }
+    elegir(inicial);
   });
 })();

@@ -10,7 +10,7 @@ layout: default
 {%- comment -%} 2. Misión y visión {%- endcomment -%}
 <section class="seccion">
   <div class="contenedor">
-    <div class="rejilla rejilla--2">
+    <div class="rejilla rejilla--2" data-revela-hijos>
       <article class="panel panel--verde">
         <h2 class="antetitulo">{{ t.mision }}</h2>
         <p class="panel__texto">{{ n.mision[lang] }}</p>
@@ -27,7 +27,7 @@ layout: default
 <section class="seccion seccion--alterna">
   <div class="contenedor">
     {% include cabecera-seccion.html antetitulo=t.valores titulo=t.valores_titulo %}
-    <ul class="rejilla rejilla--4 compromisos">
+    <ul class="rejilla rejilla--4 compromisos" data-revela-hijos>
       {%- for item in n.valores %}
       {%- assign v = item[lang] %}
       <li>

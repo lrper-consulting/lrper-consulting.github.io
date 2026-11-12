@@ -43,6 +43,7 @@ El sitio separa tres capas:
 ├── _includes/           Fragmentos reutilizables (encabezado, pie, tarjetas)
 ├── assets/
 │   ├── css/main.css     Estilos (solo medidas; los colores vienen de marca.yml)
+│   ├── js/animaciones.js  Animaciones de entrada y geometría de la portada
 │   ├── js/mazo.js       Mazo de cartas del equipo (página Nosotros)
 │   └── img/             Imágenes
 ├── docs/                Documentación interna del sitio

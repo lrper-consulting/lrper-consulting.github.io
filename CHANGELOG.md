@@ -2,6 +2,20 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). El sitio usa [Semantic Versioning](https://semver.org/lang/es/), según las reglas de `CONTRIBUTING.md`.
 
+## [0.12.0] - 2026-11-12
+
+### Agregado
+
+- Animaciones (`assets/js/animaciones.js`, sin bibliotecas externas): geometría técnica en la portada, revelado de secciones al desplazarse, línea que une los compromisos y los valores, línea de tiempo de las etapas FEL y transición del llamado a contacto.
+- Microinteracciones al pasar el cursor en tarjetas de servicio, retratos del equipo, enlaces y botones.
+- Los retratos del inicio enlazan al perfil de cada integrante en la página Nosotros.
+- Todo el movimiento se desactiva para quien pide menos movimiento en su sistema.
+
+### Cambiado
+
+- Misión, visión y valores reescritos; título de la sección de valores.
+- El llamado a contacto termina en panel oscuro.
+
 ## [0.11.0] - 2026-11-12
 
 ### Agregado

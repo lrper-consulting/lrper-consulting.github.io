@@ -1,11 +1,12 @@
 <section class="seccion">
   <div class="contenedor">
-    <div class="llamado">
+    {%- comment -%} Al entrar en pantalla, el panel pasa de claro a oscuro (data-al-entrar) {%- endcomment -%}
+    <div class="llamado" data-al-entrar>
       <div class="llamado__texto">
         <h2>{{ t.cta_titulo }}</h2>
         <p>{{ t.cta_texto }}</p>
       </div>
-      <a class="boton" href="{{ t.contacto_url | relative_url }}">{{ t.cta_boton }}</a>
+      <a class="boton boton--acento boton--flecha" href="{{ t.contacto_url | relative_url }}">{{ t.cta_boton }}</a>
     </div>
   </div>
 </section>

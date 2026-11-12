@@ -3,7 +3,7 @@
   Sin parámetros: tarjeta resumida con número, ícono y enlace (Inicio).
   Con detalle="si": incluye la lista de entregables (página Servicios).
 {%- endcomment -%}
-<ul class="rejilla {% if include.detalle == 'si' %}rejilla--2{% else %}rejilla--auto{% endif %}">
+<ul class="rejilla {% if include.detalle == 'si' %}rejilla--2{% else %}rejilla--auto{% endif %}" data-revela-hijos>
   {%- for servicio in site.data.servicios %}
   {%- assign s = servicio[lang] %}
   <li class="tarjeta servicio" id="{{ servicio.id }}">
