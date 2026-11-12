@@ -126,9 +126,9 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .portada__velo { position: absolute; inset: 0; background: var(--primary); opacity: 0.78; }
 .portada__fila { width: 100%; display: flex; flex-wrap: wrap; gap: var(--espacio-4) 3rem; align-items: center; }
 /* Ícono y nombre forman un bloque: el ícono queda centrado sobre el nombre */
-.portada__marca { display: inline-flex; flex-direction: column; align-items: center; gap: 1.25rem; max-width: 100%; }
-.portada__icono { display: flex; align-items: center; justify-content: center; padding: 0.7rem; border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-md); }
-.portada__icono img { width: clamp(3rem, 8cqi, 4.5rem); height: auto; }
+.portada__marca { display: inline-flex; flex-direction: column; align-items: center; gap: 1rem; max-width: 100%; }
+.portada__icono { display: flex; align-items: center; justify-content: center; }
+.portada__icono img { width: clamp(5rem, 17cqi, 8.5rem); height: auto; }
 /* Nombre de la empresa: flota sobre la imagen. Su tamaño depende del ancho
    de su columna, para que la primera línea nunca se parta. */
 .portada__titular { flex: 999 1 34rem; min-width: 0; container-type: inline-size; }

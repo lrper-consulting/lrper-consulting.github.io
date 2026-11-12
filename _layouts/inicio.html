@@ -20,9 +20,9 @@ layout: default
   <div class="contenedor portada__fila">
     <div class="portada__titular">
       <div class="portada__marca">
-        {%- comment -%} Ícono a color sobre una placa clara, para que se distinga del fondo oscuro {%- endcomment -%}
+        {%- comment -%} Ícono de la marca, centrado sobre el nombre {%- endcomment -%}
         {%- if m.icono and m.icono != "" %}
-        <span class="portada__icono"><img src="{{ m.icono | relative_url }}" alt="" width="72" height="70"></span>
+        <span class="portada__icono"><img src="{{ m.icono | relative_url }}" alt="" width="136" height="132"></span>
         {%- endif %}
         <h1 class="portada__nombre">{{ site.nombre.completo[0] }} <span>{{ site.nombre.completo[1] }}</span></h1>
       </div>
