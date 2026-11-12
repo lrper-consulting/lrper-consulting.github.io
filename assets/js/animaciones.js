@@ -53,7 +53,9 @@
           observador.unobserve(entrada.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+    // Se activa poco antes de que el elemento entre en pantalla, para que la
+    // animación no compita con el desplazamiento.
+    }, { threshold: 0, rootMargin: "0px 0px 6% 0px" });
     objetivos.forEach(function (el) { observador.observe(el); });
   }
 })();

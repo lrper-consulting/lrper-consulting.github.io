@@ -1,0 +1,16 @@
+{%- comment -%}
+  Tipografías alojadas en el sitio (assets/fonts/, licencia SIL OFL 1.1).
+  "preload" pide los archivos de inmediato, en vez de esperar a que el
+  navegador descubra que los necesita; así el texto no se reacomoda tarde.
+  Inter y Space Grotesk son variables: un archivo cubre todos los grosores.
+  Solo incluyen caracteres latinos (español e inglés).
+{%- endcomment -%}
+<link rel="preload" href="{{ '/assets/fonts/inter-latin-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/space-grotesk-latin-wght.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/ibm-plex-mono-latin-500.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("{{ '/assets/fonts/inter-latin-wght.woff2' | relative_url }}") format("woff2"); }
+  @font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 300 700; font-display: swap; src: url("{{ '/assets/fonts/space-grotesk-latin-wght.woff2' | relative_url }}") format("woff2"); }
+  @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("{{ '/assets/fonts/ibm-plex-mono-latin-400.woff2' | relative_url }}") format("woff2"); }
+  @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("{{ '/assets/fonts/ibm-plex-mono-latin-500.woff2' | relative_url }}") format("woff2"); }
+</style>

@@ -73,9 +73,15 @@ fuentes:
   font_body: "'Inter', system-ui, sans-serif"
   font_technical: "'IBM Plex Mono', ui-monospace, monospace"
 
-# Hoja de estilos externa que carga las tipografías. Vacío ("") = no se carga
-# ninguna y el sitio usa las fuentes del sistema.
-fuentes_url: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;600;700&display=swap"
+# Tipografías alojadas en el propio sitio (assets/fonts/, declaradas en
+# _includes/fuentes.html). Se cargan antes y sin depender de Google, lo que
+# evita que la página se reacomode cuando llegan. true = usar las locales.
+fuentes_locales: true
+
+# Alternativa: hoja de estilos externa (Google Fonts). Solo se usa si
+# fuentes_locales es false. Vacío ("") = se usan las fuentes del sistema.
+# Valor anterior: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;600;700&display=swap"
+fuentes_url: ""
 
 medidas:
   container_width: "1200px"

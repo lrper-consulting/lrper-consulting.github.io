@@ -10,7 +10,9 @@
 <link rel="icon" type="image/png" sizes="64x64" href="{{ '/assets/img/favicon-64.png' | relative_url }}">
 <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
 <meta name="description" content="{{ page.description | default: m.lema[lang] | escape }}">
-{%- if m.fuentes_url and m.fuentes_url != "" %}
+{%- if m.fuentes_locales %}
+{% include fuentes.html %}
+{%- elsif m.fuentes_url and m.fuentes_url != "" %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{{ m.fuentes_url }}">

@@ -4,6 +4,16 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). E
 
 ## [0.12.1] - 2026-11-12
 
+### Cambiado
+
+- Rendimiento de las animaciones, a partir de una grabación de rendimiento de la portada:
+  - Los elementos que aparecen al desplazarse nacen ocultos desde el CSS. Antes, al terminar la carga, el script ocultaba con una animación unos 30 elementos que ya se veían.
+  - El revelado se activa poco antes de que el elemento entre en pantalla.
+  - El llamado a contacto se oscurece con una capa que se desvanece, en vez de animar el color de fondo.
+  - La sombra de los botones aparece por opacidad; la de las tarjetas de servicio cambia sin transición.
+  - Sin transición de color en las letras de los compromisos (ahora por opacidad), el número de las tarjetas de servicio, el texto de los retratos y los puntos de la línea FEL. Las cartas del equipo ya no transicionan su sombra (nunca cambiaba).
+- Tipografías alojadas en el sitio (`assets/fonts/`, licencia SIL OFL) y precargadas, en vez de Google Fonts. Se configuran con `fuentes_locales` en `_data/marca.yml`.
+
 ### Eliminado
 
 - Geometría técnica animada de la portada (lienzo rotatorio bajo el nombre), para aligerar la carga.

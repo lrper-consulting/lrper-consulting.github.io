@@ -99,8 +99,12 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 
 /* ---------- Botones ---------- */
 .botones { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-.boton { display: inline-block; padding: 0.875rem 1.6rem; border: 1px solid transparent; border-radius: var(--radius-md); background: var(--button-primary); color: var(--button-primary-text); font-weight: 600; text-decoration: none; transition: background-color var(--transition), border-color var(--transition), box-shadow var(--transition); }
-.boton:hover { background: var(--button-primary-hover); color: var(--button-primary-text); box-shadow: var(--shadow-sm); }
+.boton { position: relative; display: inline-block; padding: 0.875rem 1.6rem; border: 1px solid transparent; border-radius: var(--radius-md); background: var(--button-primary); color: var(--button-primary-text); font-weight: 600; text-decoration: none; transition: background-color var(--transition), border-color var(--transition); }
+.boton:hover { background: var(--button-primary-hover); color: var(--button-primary-text); }
+/* Sombra al pasar el cursor: ya está dibujada en una capa invisible que solo
+   aparece (animar la opacidad es barato; animar box-shadow repinta). */
+.boton::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; box-shadow: var(--shadow-sm); opacity: 0; transition: opacity var(--transition); pointer-events: none; }
+.boton:hover::before { opacity: 1; }
 .boton--secundario { background: var(--button-secondary); color: var(--button-secondary-text); }
 .boton--secundario:hover { background: var(--button-secondary-hover); color: var(--button-secondary-text); }
 .boton--acento { background: var(--button-accent); color: var(--button-accent-text); }
@@ -165,8 +169,9 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .entradilla { font-size: 1.2rem; color: var(--muted); max-width: 60ch; }
 
 /* Tarjeta de servicio */
-.servicio { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: var(--espacio-2); transition: transform var(--transition), box-shadow var(--transition); }
-/* Al pasar el cursor: la tarjeta sube 4 px y aparece una línea de acento */
+.servicio { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: var(--espacio-2); transition: transform var(--transition); }
+/* Al pasar el cursor: la tarjeta sube 4 px y aparece una línea de acento.
+   La sombra cambia de una vez, sin transición, para no repintar en cada cuadro. */
 .servicio::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
 .servicio:hover, .servicio:focus-within { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .servicio:hover::after, .servicio:focus-within::after { transform: scaleX(1); }
@@ -174,17 +179,17 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .servicio > * { margin: 0; }
 .servicio__cabeza { display: flex; justify-content: space-between; align-items: center; }
 .servicio__icono { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: var(--radius-md); background: var(--surface-green); color: var(--secondary); }
-.servicio__numero { font-size: 0.82rem; color: var(--muted); transition: color var(--transition); }
+.servicio__numero { font-size: 0.82rem; color: var(--muted); }
 .servicio p { font-size: 0.95rem; }
 .servicio__enlace { margin-top: auto; }
 
 /* Compromisos ("Nuestro enfoque") y valores */
 .compromisos { position: relative; gap: var(--espacio-4); }
 .compromisos li { border-top: 2px solid var(--primary); padding-top: 1.25rem; }
-.compromisos__letra { display: block; font-size: 0.82rem; color: var(--secondary); margin-bottom: 0.6rem; transition: color 0.5s ease 0.3s; }
+.compromisos__letra { display: block; font-size: 0.82rem; color: var(--secondary); margin-bottom: 0.6rem; transition: opacity 0.5s ease 0.3s; }
 .compromisos p { margin: 0; }
-/* Antes de aparecer, la letra o el número está apagado */
-.js .compromisos li[data-revela]:not(.es-visible) .compromisos__letra { color: var(--border); }
+/* Antes de aparecer, la letra o el número está apagado (por opacidad) */
+.js .compromisos[data-revela-hijos] > :not(.es-visible) .compromisos__letra { opacity: 0.3; }
 /* Cuando los elementos están en una sola fila, una línea continua los une y
    se dibuja de izquierda a derecha al entrar en pantalla */
 .compromisos::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--primary); transform-origin: left; display: none; }
@@ -209,7 +214,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .retrato__enlace:hover .retrato__foto::after, .retrato__enlace:focus-visible .retrato__foto::after { transform: scaleX(1); }
 .retrato__enlace:hover p, .retrato__enlace:focus-visible p { color: var(--body); }
 .retrato h3 { font-size: 1.125rem; margin-bottom: 0.25rem; }
-.retrato p { margin: 0; font-size: 0.875rem; color: var(--muted); transition: color var(--transition); }
+.retrato p { margin: 0; font-size: 0.875rem; color: var(--muted); }
 .persona__foto { width: 5rem; height: 5rem; border-radius: 50%; object-fit: cover; margin-bottom: var(--espacio-2); }
 .persona__foto--iniciales { display: flex; align-items: center; justify-content: center; background: var(--primary); color: var(--text-light); font-family: var(--font-heading); font-weight: 700; font-size: 1.4rem; }
 .persona h3 { margin-bottom: var(--espacio-1); }
@@ -249,7 +254,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .seccion--mazo:has(.mazo--activo) .mazo__ayuda { display: block; }
 .mazo__abanico { display: flex; width: max-content; margin: 0 auto; padding: 0 3.5rem; }
 
-.carta { position: relative; flex: 0 0 11rem; margin: 0 -3rem; padding: 0.75rem 0.75rem 1.125rem; display: flex; flex-direction: column; gap: 0.375rem; text-align: left; font: inherit; cursor: pointer; border-radius: var(--radius-lg); background: var(--surface); border: 2px solid var(--border); box-shadow: var(--shadow-md); transform: translateY(var(--caida, 0)) rotate(var(--giro, 0deg)); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
+.carta { position: relative; flex: 0 0 11rem; margin: 0 -3rem; padding: 0.75rem 0.75rem 1.125rem; display: flex; flex-direction: column; gap: 0.375rem; text-align: left; font: inherit; cursor: pointer; border-radius: var(--radius-lg); background: var(--surface); border: 2px solid var(--border); box-shadow: var(--shadow-md); transform: translateY(var(--caida, 0)) rotate(var(--giro, 0deg)); transition: transform var(--transition), border-color var(--transition); }
 /* Al pasar el cursor la carta se asoma; solo el clic la elige */
 .carta:hover { transform: translateY(calc(var(--caida, 0px) - 0.75rem)) rotate(var(--giro, 0deg)); border-color: var(--muted); }
 .carta[aria-pressed="true"] { cursor: default; transform: translateY(-2.25rem) rotate(0deg) scale(1.04); border-color: var(--accent); }
@@ -307,7 +312,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
   .js .etapas[data-al-entrar]::after { transform: scaleX(0); transition: transform 1.3s ease; }
   .js .etapas[data-al-entrar].es-visible::after { transform: scaleX(0.667); }
   .etapa { position: relative; }
-  .etapa::before { content: ""; position: absolute; left: 0; top: -2.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--muted); border: 3px solid var(--background); z-index: 1; transition: background-color 0.4s ease; }
+  .etapa::before { content: ""; position: absolute; left: 0; top: -2.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--muted); border: 3px solid var(--background); z-index: 1; }
   .etapa--principal::before { background: var(--accent); }
   .etapa--continuidad::before { background: var(--secondary); }
 }
@@ -383,14 +388,19 @@ th { font-family: var(--font-technical); font-size: 0.75rem; font-weight: 500; t
 
 /* ---------- Llamado a contacto ---------- */
 /* Estado final: panel oscuro. Con JavaScript parte claro y se oscurece al
-   entrar en pantalla, mientras una línea de acento se dibuja bajo el título. */
-.llamado { display: flex; flex-wrap: wrap; gap: 2rem var(--espacio-5); align-items: center; justify-content: space-between; padding: clamp(2rem, 6vw, 4.5rem); border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--border); transition: background-color 0.8s ease, color 0.8s ease; }
+   entrar en pantalla, mientras una línea de acento se dibuja bajo el título.
+   El fondo oscuro está siempre; encima, una capa clara se desvanece (animar
+   la opacidad es barato; animar background-color repinta todo el panel).
+   El texto cambia de color de una vez, a mitad del oscurecimiento. */
+.llamado { position: relative; isolation: isolate; display: flex; flex-wrap: wrap; gap: 2rem var(--espacio-5); align-items: center; justify-content: space-between; padding: clamp(2rem, 6vw, 4.5rem); border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--border); transition: color 0s linear 0.4s; }
+.llamado::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--surface-green); opacity: 0; transition: opacity 0.8s ease; pointer-events: none; }
 .llamado__texto { flex: 999 1 26rem; min-width: 0; }
-.llamado__texto h2 { margin: 0 0 0.75rem; color: var(--text-light); transition: color 0.8s ease; }
+.llamado__texto h2 { margin: 0 0 0.75rem; color: var(--text-light); transition: color 0s linear 0.4s; }
 .llamado__texto h2::after { content: ""; display: block; width: 4.5rem; height: 3px; margin-top: 1rem; background: var(--accent); transform-origin: left; transition: transform 0.7s ease 0.4s; }
 .llamado__texto p { margin: 0; font-size: 1.125rem; }
 .llamado :focus-visible { outline-color: var(--focus-inverse); }
-.js .llamado[data-al-entrar]:not(.es-visible) { background: var(--surface-green); color: var(--body); }
+.js .llamado[data-al-entrar]:not(.es-visible) { color: var(--body); }
+.js .llamado[data-al-entrar]:not(.es-visible)::before { opacity: 1; }
 .js .llamado[data-al-entrar]:not(.es-visible) h2 { color: var(--heading); }
 .js .llamado[data-al-entrar]:not(.es-visible) h2::after { transform: scaleX(0); }
 
@@ -410,8 +420,12 @@ th { font-family: var(--font-technical); font-size: 0.75rem; font-weight: 500; t
 /* ---------- Animaciones de entrada ---------- */
 /* Revelado al desplazarse. Solo se prepara si hay JavaScript (clase "js" en
    <html>); assets/js/animaciones.js agrega "es-visible" al entrar en pantalla.
-   --i es la posición del elemento dentro de su grupo y define su retraso. */
-.js [data-revela] { opacity: 0; transform: translateY(1.25rem); transition: opacity 0.6s ease, transform 0.6s ease; transition-delay: calc(var(--i, 0) * 90ms); }
+   --i es la posición del elemento dentro de su grupo y define su retraso.
+   Los hijos de un grupo (data-revela-hijos) nacen ocultos desde el CSS: así
+   no se ven primero y se esconden después con una animación innecesaria
+   cuando el script, que corre al final de la carga, los prepara. */
+.js [data-revela], .js [data-revela-hijos] > :not(.es-visible) { opacity: 0; transform: translateY(1.25rem); }
+.js [data-revela] { transition: opacity 0.6s ease, transform 0.6s ease; transition-delay: calc(var(--i, 0) * 90ms); }
 .js [data-revela].es-visible { opacity: 1; transform: none; }
 
 /* Entrada de la portada al cargar: primero el nombre, luego la caja y las etapas */
@@ -426,7 +440,8 @@ th { font-family: var(--font-technical); font-size: 0.75rem; font-weight: 500; t
 /* Sin animaciones para quien las desactiva en su sistema */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
-  .js [data-revela] { opacity: 1; transform: none; }
+  .js [data-revela], .js [data-revela-hijos] > * { opacity: 1; transform: none; }
+  .js .compromisos[data-revela-hijos] > :not(.es-visible) .compromisos__letra { opacity: 1; }
 }
 
 /* ---------- Pantallas medianas y grandes ---------- */
