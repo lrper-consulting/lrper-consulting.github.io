@@ -2,6 +2,13 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). El sitio usa [Semantic Versioning](https://semver.org/lang/es/), según las reglas de `CONTRIBUTING.md`.
 
+## [0.12.1] - 2026-11-12
+
+### Eliminado
+
+- Geometría técnica animada de la portada (lienzo rotatorio bajo el nombre), para aligerar la carga.
+- Entrada escalonada de las tarjetas de etapas FEL en Servicios; se mantiene solo la línea de tiempo con sus puntos.
+
 ## [0.12.0] - 2026-11-12
 
 ### Agregado

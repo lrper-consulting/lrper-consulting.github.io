@@ -125,8 +125,6 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
 .portada__fondo { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
 .portada__fondo img { width: 100%; height: 100%; max-width: none; object-fit: cover; }
 .portada__velo { position: absolute; inset: 0; background: var(--primary); opacity: 0.78; }
-/* Geometría técnica: líneas finas sobre el velo, detrás del texto */
-.portada__geometria { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; }
 .portada__fila { width: 100%; display: flex; flex-wrap: wrap; gap: var(--espacio-4) 3rem; align-items: center; }
 /* Ícono y nombre forman un bloque: el ícono queda centrado sobre el nombre */
 .portada__marca { display: inline-flex; flex-direction: column; align-items: center; gap: 1rem; max-width: 100%; }
@@ -306,15 +304,13 @@ hr { border: 0; border-top: 1px solid var(--border); margin: var(--espacio-4) 0;
   .etapas::before, .etapas::after { content: ""; position: absolute; left: 0; top: 0.75rem; height: 2px; }
   .etapas::before { right: 0; background: var(--border); }
   .etapas::after { width: 100%; background: var(--accent); transform: scaleX(0.667); transform-origin: left; }
-  .js .etapas[data-revela-hijos]::after { transform: scaleX(0); transition: transform 1.3s ease; }
-  .js .etapas[data-revela-hijos].es-visible::after { transform: scaleX(0.667); }
+  .js .etapas[data-al-entrar]::after { transform: scaleX(0); transition: transform 1.3s ease; }
+  .js .etapas[data-al-entrar].es-visible::after { transform: scaleX(0.667); }
   .etapa { position: relative; }
   .etapa::before { content: ""; position: absolute; left: 0; top: -2.5rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--muted); border: 3px solid var(--background); z-index: 1; transition: background-color 0.4s ease; }
   .etapa--principal::before { background: var(--accent); }
   .etapa--continuidad::before { background: var(--secondary); }
 }
-/* Las etapas se iluminan una tras otra */
-.js .etapas > [data-revela] { transition-delay: calc(var(--i, 0) * 320ms); }
 
 /* ---------- Servicios en filas ---------- */
 .filas { border-bottom: 1px solid var(--border); }
