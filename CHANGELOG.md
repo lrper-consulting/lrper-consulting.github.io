@@ -2,6 +2,17 @@
 
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/). El sitio usa [Semantic Versioning](https://semver.org/lang/es/), según las reglas de `CONTRIBUTING.md`.
 
+## [0.11.0] - 2026-11-12
+
+### Agregado
+
+- Misión, visión y los cuatro valores (calidad, evidencia, integridad y sostenibilidad) en la página Nosotros, en español e inglés.
+
+### Cambiado
+
+- Lema de la marca: "Ingeniería temprana para decidir con fundamento".
+- Ícono de la portada más grande y sin fondo.
+
 ## [0.10.0] - 2026-11-11
 
 ### Agregado

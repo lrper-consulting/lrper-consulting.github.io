@@ -1,41 +1,49 @@
 # Misión, visión y valores, y los diferenciadores del bloque "Nuestro enfoque"
 # de la página de inicio.
 #
-# MISIÓN, VISIÓN Y VALORES SON PROVISIONALES: el equipo debe redactarlos.
+# Los cuatro valores son los pilares; la misión y la visión se redactan a
+# partir de ellos:
+#   - La misión dice primero el propósito y luego recorre los cuatro valores,
+#     en el mismo orden en que aparecen abajo.
+#   - La visión es un compromiso: la confianza se gana estudio a estudio. No
+#     afirma reconocimiento ni trayectoria que la empresa todavía no tiene.
+#   - Cada valor resume su definición del documento interno "Misión, visión y
+#     valores" (versión 0.1.0, 2026-11-12).
+# La misión y la visión de este archivo reemplazan a las de ese documento.
 
 mision:
-  es: "Texto provisional. Aquí va la misión: qué hace la empresa, para quién y con qué propósito."
-  en: "Placeholder text. The mission goes here: what the company does, for whom and for what purpose."
+  es: "Acompañamos a empresas de energía e industria en las etapas tempranas de sus proyectos, para que decidan con fundamento antes de comprometer su inversión. Lo hacemos con estudios que responden a su necesidad real, sostienen cada conclusión en evidencia, dicen lo que el análisis muestra y evalúan el proyecto en todo su ciclo de vida."
+  en: "We support energy and industrial companies in the early stages of their projects, so that they can make well-founded decisions before committing their investment. We do it with studies that respond to their real need, ground every conclusion in evidence, say what the analysis shows and assess the project across its whole life cycle."
 
 vision:
-  es: "Texto provisional. Aquí va la visión: dónde quiere estar la empresa en el largo plazo."
-  en: "Placeholder text. The vision goes here: where the company wants to be in the long term."
+  es: "Ganarnos, estudio a estudio, la confianza de las empresas y financistas que impulsan la transición energética en América Latina, hasta ser la consultora de ingeniería temprana a la que acuden cuando la decisión importa."
+  en: "To earn, study by study, the trust of the companies and financiers driving the energy transition in Latin America, until we are the early-stage engineering consultancy they turn to when the decision matters."
 
 valores:
   - es:
-      nombre: "Valor 1"
-      descripcion: "Texto provisional que explica el valor en una frase."
+      nombre: "Calidad"
+      descripcion: "Nuestro trabajo cumple la necesidad real del cliente, entendida en su contexto. Antes de calcular, entendemos qué decisión debe tomar."
     en:
-      nombre: "Value 1"
-      descripcion: "Placeholder text explaining the value in one sentence."
+      nombre: "Quality"
+      descripcion: "Our work meets the client's real need, understood in its context. Before we calculate, we understand the decision the client has to make."
   - es:
-      nombre: "Valor 2"
-      descripcion: "Texto provisional que explica el valor en una frase."
+      nombre: "Evidencia"
+      descripcion: "Sostenemos cada conclusión en datos, métodos y supuestos declarados, que un tercero puede revisar y reproducir. Declaramos también lo que no se sabe."
     en:
-      nombre: "Value 2"
-      descripcion: "Placeholder text explaining the value in one sentence."
+      nombre: "Evidence"
+      descripcion: "We ground every conclusion in stated data, methods and assumptions that a third party can review and reproduce. We also state what is not known."
   - es:
-      nombre: "Valor 3"
-      descripcion: "Texto provisional que explica el valor en una frase."
+      nombre: "Integridad"
+      descripcion: "Decimos lo que el análisis muestra, aunque no sea lo que se espera oír, y trabajamos solo dentro de nuestra competencia."
     en:
-      nombre: "Value 3"
-      descripcion: "Placeholder text explaining the value in one sentence."
+      nombre: "Integrity"
+      descripcion: "We say what the analysis shows, even when it is not what people hope to hear, and we work only within our competence."
   - es:
-      nombre: "Valor 4"
-      descripcion: "Texto provisional que explica el valor en una frase."
+      nombre: "Sostenibilidad"
+      descripcion: "Evaluamos cada proyecto por su viabilidad técnica, económica y ambiental, a lo largo de todo su ciclo de vida."
     en:
-      nombre: "Value 4"
-      descripcion: "Placeholder text explaining the value in one sentence."
+      nombre: "Sustainability"
+      descripcion: "We assess every project on its technical, economic and environmental viability, across its whole life cycle."
 
 # Diferenciadores (borrador, a validar por el equipo).
 enfoque:
